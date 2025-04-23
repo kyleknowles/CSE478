@@ -11,7 +11,7 @@
             <body>
             <h1>Bar Chart Assignment</h1>
             <Button onclick = "load()">Button</Button>
-            <svg id="chart" width="800" height="450"></svg>
+            <svg width="800" height="450"></svg>
         <script>
             
             function load() {
@@ -44,7 +44,7 @@
                 .data(data)
                 .enter()
                 .append(circle)
-                .attr("cx", (d, i) => 60 * i * 80)
+                .attr("cx", (d, i) => 60 + i * 80)
                 .attr("cy", 60)
                 .attr("r", d => d.radius)
                 .attr("fill", "steelblue")
