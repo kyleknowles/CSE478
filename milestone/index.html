@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <title>D3 Bar Chart Assignment</title>
+            <link rel="stylesheet" href="style.css" />
+             <script src="https://d3js.org/d3.v7.min.js"></script>
+             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            </head>
+            <body>
+            <h1>Bar Chart Assignment</h1>
+            <svg id="chart" width="800" height="450"></svg>
+        <script>
+            fetch("Basic_Stats.csv")
+                .then(response => response.text())
+                .then(csv => console.log(csv))
+        </script>
+    </body>
+</html>
