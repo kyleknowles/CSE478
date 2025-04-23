@@ -43,7 +43,7 @@
             const circles = svg.selectAll("circle")
                 .data(data)
                 .enter()
-                .append(circle)
+                .append("circle")
                 .attr("cx", (d, i) => 60 + i * 80)
                 .attr("cy", 60)
                 .attr("r", d => d.radius)
