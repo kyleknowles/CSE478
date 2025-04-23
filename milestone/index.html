@@ -16,8 +16,18 @@
             function load() {
                 fetch("Basic_Stats.csv")
                     .then(response => response.text())
-                    .then(csv => alert(csv))
-
+                    .then(csv => {
+                        let rows = csv.split("\n");
+                        let headers = rows[0].split(",");
+                        let data = rows.slice(1).map(row => {
+                            let values = rows.split(",");
+                            return headers.reduce((obj, key, i) => {
+                                obj[key] = values[i];
+                                return obj;
+                            }, {});
+                        });
+                        alert(data); 
+                    });
             }
                 
         </script>
