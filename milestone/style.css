@@ -3,3 +3,14 @@
 svg {
     background: #f5f5f5;
 }
+
+circle {
+    cursor: pointer;
+    transition: fill 0.3s;
+}
+
+.highlighted {
+    stroke: black;
+    stroke-width: 2px;
+    fill: orange !important;
+}
