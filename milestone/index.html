@@ -40,7 +40,7 @@
 
             const svg = d3.select("svg");
 
-            const circles = svg.selectAll("circle")
+            svg.selectAll("circle")
                 .data(data)
                 .enter()
                 .append("circle")
