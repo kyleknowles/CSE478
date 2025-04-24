@@ -5,17 +5,17 @@
             <meta charset="UTF-8" />
             <title>D3 Bar Chart Assignment</title>
             <link rel="stylesheet" href="style.css" />
-            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <script src="d3.v7.min.js"></script>
             </head>
             <body>
             <svg width="500" height="120"></svg>
            
-            <button onclick = "load()">Button</button>
+            <!--<button onclick = "load()">Button</button> -->
             <!-- <script src="script.js"></script> -->
 
             <script>    
                     
-function load() {
+
     fetch("Basic_Stats.csv")
         .then(response => response.text())
             .then(csv => {
@@ -24,14 +24,11 @@ function load() {
                 let data = rows.slice(1).map(row => {
                 let values = row.split(",");
                 return headers.reduce((obj, key, i) => {
+                    alert(key)
                     obj[key] = values[i];
-                    alert(obj)
                     return obj; }, {});
                     });
                 });
-}
-
-
    
 
     const data = [
@@ -64,7 +61,6 @@ function load() {
         .attr("height", d => d.length)
         .attr("fill", "steelblue")
    
-    //alert("Hello 2")
 
 
                 
