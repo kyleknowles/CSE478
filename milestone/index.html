@@ -23,13 +23,16 @@
                 let headers = rows[0].split(",");
                 let data = rows.slice(1).map(row => {
                 let values = row.split(/,(?! )(?<! )/);
+                dict = {}
                 return headers.reduce((obj, key, i) => {
                     if (key == "Name") {
-                        alert(key + " " + values[i])
+                        //alert(key + " " + values[i])
+                        dict[key] = values[i]
                     }
                         
                     obj[key] = values[i];
                     return obj; }, {});
+                    data.append(dict);
                     });
                 });
    
