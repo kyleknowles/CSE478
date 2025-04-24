@@ -25,7 +25,7 @@
                 let values = row.split(",");
                 return headers.reduce((obj, key, i) => {
                     alert(key + " " + values[i])
-                    obj[key] = values[i];
+                    obj[key] = values[i+1];
                     return obj; }, {});
                     });
                 });
