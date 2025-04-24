@@ -21,7 +21,7 @@ function load2() {
         {id: 2, radius: 25},
         {id: 3, radius: 15},
         {id: 4, radius: 30},
-        {id: 5, radius: 18},
+        {id: 5, radius: 18}
     ];
 
 const svg = d3.select("svg");
