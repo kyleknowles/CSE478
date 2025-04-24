@@ -38,3 +38,4 @@ const circles = svg.selectAll("circle")
             return !d3.select(this).classed("highlighted");
         });
     });
+alert("F this")
