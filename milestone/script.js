@@ -24,7 +24,7 @@ function load() {
         {id: 5, radius: 18}
     ];
     alert("F this2");
-    const svg = d3.select("svg");
+    //const svg = d3.select("svg");
     alert("F this3");
     const circles = svg.selectAll("circle")
         .data(data)
