@@ -34,11 +34,6 @@ const circles = svg.selectAll("circle")
 .attr("cy", 60)
 .attr("r", d => d.radius)
 .attr("fill", "steelblue")
-.on("click", function(event, d) {
-d3.select(this).classed("highlighted", function() {
-    return !d3.select(this).classed("highlighted");
-});
-});
-alert("F this")
+alert("F this");
 
 }
