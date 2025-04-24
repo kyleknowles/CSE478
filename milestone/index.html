@@ -27,7 +27,7 @@
                 let dict = {}
                 return headers.reduce((obj, key, i) => {
                     
-                    if ((key == "Name") || (key == "Height (inches)")) {
+                    if (key == "Name") {
                        alert(key + " " + values[i])
                     }
                     obj[key] = values[i];
