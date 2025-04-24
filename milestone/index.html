@@ -16,23 +16,27 @@
             <script>    
                     
 
+    let data = []
     fetch("Basic_Stats.csv")
         .then(response => response.text())
             .then(csv => {
                 let rows = csv.split("\n");
                 let headers = rows[0].split(",");
                 let data = rows.slice(1).map(row => {
-                let values = row.split(",");
+                let values = row.split(/,(?! )(?<! )/);
+                let dict = {}
                 return headers.reduce((obj, key, i) => {
-                    alert(key + " " + values[i+1])
-                    obj[key] = values[i];
+                    dict[key] = values[i];
+                    //obj[key] = values[i];
+
+                    data.append(dict)
                     return obj; }, {});
                     });
                 });
    
 
 
-   
+    
    
     /*
     const xScale = d3.scaleBand()

@@ -6,7 +6,8 @@ function load() {
                 let rows = csv.split("\n");
                 let headers = rows[0].split(",");
                 let data = rows.slice(1).map(row => {
-                let values = row.split(",");
+                let values = row.split(/,(?! )(?<! )/);
+                
                 return headers.reduce((obj, key, i) => {
                     obj[key] = values[i];
                     return obj; }, {});
