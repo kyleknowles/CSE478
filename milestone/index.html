@@ -23,9 +23,8 @@
                 let headers = rows[0].split(",");
                 let data = rows.slice(1).map(row => {
                 let values = row.split(/,(?! )(?<! )/);
-            
                 return headers.reduce((obj, key, i) => {
-                    alert(key + " " + values[i+1])
+                    alert(key + " " + values[i])
                     obj[key] = values[i];
                     return obj; }, {});
                     });
