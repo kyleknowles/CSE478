@@ -24,20 +24,19 @@
                 let headers = rows[0].split(",");
                 let data = rows.slice(1).map(row => {
                 let values = row.split(/,(?! )(?<! )/);
-                let dict = {}
                 return headers.reduce((obj, key, i) => {
-                    dict[key] = values[i];
-                    //obj[key] = values[i];
+                    
+                    obj[key] = values[i];
 
-                    alert(dict)
-                    data.append(dict)
+                    data.append(obj)
+
                     return obj; }, {});
                     });
                 });
    
 
 
-    alert(data)
+    
     
     /*
     const xScale = d3.scaleBand()
