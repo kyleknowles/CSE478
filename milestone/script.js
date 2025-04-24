@@ -15,7 +15,6 @@ function load() {
                 });
 }
 
-function load2() {
     alert("F this");
     const data = [
         {id: 1, radius: 20},
@@ -37,4 +36,4 @@ function load2() {
         .attr("fill", "steelblue")
         
 
-}
+
