@@ -24,21 +24,14 @@
                 let data = rows.slice(1).map(row => {
                 let values = row.split(",");
                 return headers.reduce((obj, key, i) => {
-                    alert(key)
+                    alert(key + " " + values[i])
                     obj[key] = values[i];
                     return obj; }, {});
                     });
                 });
    
 
-    const data = [
-        { id: 1, length: 20},
-        { id: 2, length: 25},
-        { id: 3, length: 30},
-        { id: 4, length: 15},
-        { id: 5, length: 35}
 
-    ];
    
    
     /*
