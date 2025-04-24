@@ -16,6 +16,7 @@ function load() {
 }
 
 function load2() {
+    alert("F this");
     const data = [
         {id: 1, radius: 20},
         {id: 2, radius: 25},
@@ -23,17 +24,17 @@ function load2() {
         {id: 4, radius: 30},
         {id: 5, radius: 18}
     ];
-
-const svg = d3.select("svg");
-
-const circles = svg.selectAll("circle")
-.data(data)
-.enter()
-.append("circle")
-.attr("cx", (d, i) => 60 + i * 80)
-.attr("cy", 60)
-.attr("r", d => d.radius)
-.attr("fill", "steelblue")
-alert("F this");
+    alert("F this2");
+    const svg = d3.select("svg");
+    alert("F this3");
+    const circles = svg.selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", (d, i) => 60 + i * 80)
+        .attr("cy", 60)
+        .attr("r", d => d.radius)
+        .attr("fill", "steelblue")
+        
 
 }
