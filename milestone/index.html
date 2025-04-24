@@ -10,22 +10,66 @@
             <body>
             <svg width="500" height="120"></svg>
            
-            <!--<button onclick = "load()">Button</button>
-            <button onclick = "load2()">Button2</button> 
-            <script src="script.js"></script>-->
+            <button onclick = "load()">Button</button>
+            <!-- <script src="script.js"></script> -->
 
             <script>    
-                alert("F this");
-                const data = [
-                    {id: 1, radius: 20},
-                    {id: 2, radius: 25},
-                    {id: 3, radius: 15},
-                    {id: 4, radius: 30},
-                    {id: 5, radius: 18}
-                ];
-                alert("F this2");
-                const svg = d3.select("svg");
-                alert("F this3")
+                    
+function load() {
+    fetch("Basic_Stats.csv")
+        .then(response => response.text())
+            .then(csv => {
+                let rows = csv.split("\n");
+                let headers = rows[0].split(",");
+                let data = rows.slice(1).map(row => {
+                let values = row.split(",");
+                return headers.reduce((obj, key, i) => {
+                    obj[key] = values[i];
+                     
+                    return obj; }, {});
+                    });
+                });
+}
+
+
+   
+
+    const data = [
+        { id: 1, length: 20},
+        { id: 2, length: 25},
+        { id: 3, length: 30},
+        { id: 4, length: 15},
+        { id: 5, length: 35}
+
+    ];
+   
+   
+    /*
+    const xScale = d3.scaleBand()
+        .domain(["A", "B", "C", "D"])
+        .range([0, 400])
+        .padding(0.1);
+    */
+    const svg = d3.select("svg");
+    const barWidth = 40
+    //alert("Hello")
+
+    const bars = svg.selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("x", (d, i) => i * (barWidth + 5))
+        .attr("y", d => 100 - d.length)
+        .attr("width", barWidth)
+        .attr("height", d => d.length)
+        .attr("fill", "steelblue")
+   
+    //alert("Hello 2")
+
+
+                
+
+
                 </script>
     </body>
 </html>
