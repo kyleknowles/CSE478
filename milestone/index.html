@@ -25,7 +25,7 @@ function load() {
                 let values = row.split(",");
                 return headers.reduce((obj, key, i) => {
                     obj[key] = values[i];
-                     
+                    alert(obj)
                     return obj; }, {});
                     });
                 });
