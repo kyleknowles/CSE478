@@ -8,7 +8,7 @@
             <script src="d3.v7.min.js"></script>
             </head>
             <body>
-            <svg width="500" height="120"></svg>
+            <svg width="5000" height="120"></svg>
            
             <!--<button onclick = "load()">Button</button> -->
             <!-- <script src="script.js"></script> -->
@@ -25,10 +25,12 @@
                 let values = row.split(/,(?! )(?<! )/);
                 dict = {}
                 return headers.reduce((obj, key, i) => {
-                    if (key == "Name") {
+                    if (key == "Height (inches)") {
                         //alert(key + " " + values[i])
-                        dict[key] = values[i]
+                        dict[height] = values[i]
                     }
+
+
                         
                     obj[key] = values[i];
                     return obj; }, {});
@@ -37,9 +39,9 @@
                 });
    
 
-
+    
    
-   
+    
     /*
     const xScale = d3.scaleBand()
         .domain(["A", "B", "C", "D"])
@@ -55,9 +57,9 @@
         .enter()
         .append("rect")
         .attr("x", (d, i) => i * (barWidth + 5))
-        .attr("y", d => 100 - d.length)
+        .attr("y", d => 100 - d.height)
         .attr("width", barWidth)
-        .attr("height", d => d.length)
+        .attr("height", d => d.height)
         .attr("fill", "steelblue")
    
 
