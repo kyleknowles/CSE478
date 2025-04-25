@@ -43,7 +43,7 @@
                     .domain([minHeight + 1, maxHeight])
                     .range([0, 100]);        
                 
-                alert(maxAge)
+                //alert(maxHeight)
 
                 const bars = svg.selectAll("rect")
                     .data(data)
