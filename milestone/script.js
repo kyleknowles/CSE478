@@ -56,11 +56,9 @@
                     .attr("width", barWidth)
                     .attr("height", d => (d["Height (inches)"] - minHeight + 3) *  heightConstant)
                     .attr("fill", "steelblue")
-                    .on("click", function(event, d) {
-                        d3.select(this).classed("highlighted", function() {
-                            alert(String(d["Name"]) + " " + String(d["Height (inches)"]))
-                            return !d3.select(this).classed("highlighted");
-                    
-                        });
-                    });
+                    .on("mouseover", function(event, d) {
+                        d3.select("#tooltip")
+                            .style("display", "block")
+                            .html(`${d["Name"]}<br>Height: ${d["Height (inches)"]}"`);
+                    })
             });
