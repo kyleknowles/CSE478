@@ -48,7 +48,7 @@
                     .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
                     .attr("y", d => maxHeight - d["Height (inches)"])
                     .attr("width", barWidth)
-                    .attr("height", d => (d["Height (inches)"] - minHeight + 3) * heightConstant)
+                    .attr("height", d => (d["Height (inches)"] - minHeight) * heightConstant + 10)
                     .attr("fill", "steelblue")
                     .on("mouseover", function(event, d) {
                         d3.select("#tooltip")
@@ -59,7 +59,7 @@
 
                 const svg2 = d3.select("#svg2");
                 
-                data2 = data2.filter(d => d["Weight (lbs)"] > 0);
+                data2 = data2.filter(d => d["Weight (lbs)"] > 1);
                 data2.sort((a, b) => a["Weight (lbs)"] - b["Weight (lbs)"]);
                 //data = data.filter(d => d["Current Status"] == Active);
                     
@@ -78,7 +78,7 @@
                 .attr("x", (d, i) => i * (barWidth +  (barWidth/2)))
                 .attr("y", d => maxWeight - d["Weight (lbs)"])
                 .attr("width", barWidth)
-                .attr("height", d => (d["Weight (lbs)"] - minWeight ) *  weightConstant + 10)
+                .attr("height", d => (d["Weight (lbs)"] - minWeight) *  weightConstant + 10)
                 .attr("fill", "steelblue")
     
                 .on("mouseover", function(event, d) {
