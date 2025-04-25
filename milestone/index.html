@@ -18,26 +18,20 @@
 
     fetch("Basic_Stats.csv")
         .then(response => response.text())
-            .then(csv => {
+        .then(csv => {
                 let rows = csv.split("\n");
                 let headers = rows[0].split(",");
                 let data = rows.slice(1).map(row => {
                 let values = row.split(/,(?! )(?<! )/);
-                dict = {}
+                //dict = {}
                 return headers.reduce((obj, key, i) => {
-                    if (key == "Height (inches)") {
-                        //alert(key + " " + values[i])
-                        dict[height] = values[i]
-                    }
-
-
-                        
-                    obj[key] = values[i];
+                    
+                    obj[key] = isNan(values[i]) ? 0 : values[i]
                     return obj; }, {});
-                    data.append(dict);
+                    //data.append(dict);
                     });
                 });
-   
+    
 
     
    
