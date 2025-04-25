@@ -55,7 +55,10 @@
                         let nameList = d["Name"].split(",")
                         let firstName = nameList[1].replace('"', "")
                         let lastName = nameList[0].replace('"', "")
+                        d3.select(this) 
+                            .style("fill", "red")
                         d3.select("#tooltip")
+                        
                             .style("display", "block")
                             .html(`${firstName} ${lastName}<br>${d["Current Team"]}<br> ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
                     })
@@ -94,6 +97,7 @@
                 .on("mouseover", function(event, d) {
                     d3.select(this) 
                         .style("fill", "red")
+
                     d3.select("#tooltip")
                         .style("display", "block")
     
