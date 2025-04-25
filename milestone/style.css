@@ -6,7 +6,7 @@ svg {
 
 rect {
     cursor: pointer;
-    transition: fill 0.3s;
+    fill: steelblue ;
 }
 
 .highlighted {
