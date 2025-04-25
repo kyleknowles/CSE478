@@ -48,7 +48,7 @@
                     .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
                     .attr("y", d => (maxHeight - d["Height (inches)"]) *  heightConstant)
                     .attr("width", barWidth)
-                    .attr("height", d => (d["Height (inches)"] - minHeight + 30) * heightConstant)
+                    .attr("height", d => (d["Height (inches)"]) * heightConstant)
                     .attr("fill", "steelblue")
                     .on("mouseover", function(event, d) {
                         d3.select("#tooltip")
