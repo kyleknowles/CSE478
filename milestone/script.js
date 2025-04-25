@@ -85,15 +85,16 @@
                 .attr("width", barWidth)
                 .attr("height", d => (d["Weight (lbs)"] - minWeight + minWeightBar) * weightConstant)
                 .attr("fill", "steelblue")
-    
+
                 let nameList = d["Name"].split(",")
                 let firstName = nameList[1].replace('"', "")
                 let lastName = nameList[0].replace('"', "")
-                d3.select("#tooltip")
-                    .style("display", "block")
-                    .html(`${firstName} ${lastName}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} lbs`);
+                .on("mouseover", function(event, d) {
+                    d3.select("#tooltip")
+                        .style("display", "block")
+                        .html(`${firstName} ${lastName}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} lbs`);
                 })
-                    
+       
                 
             });
 
