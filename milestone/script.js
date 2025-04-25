@@ -52,11 +52,11 @@
                     .attr("height", d => (d["Height (inches)"] - minHeight + minHeightBar) * heightConstant)
                     .attr("fill", "steelblue")
                     .on("mouseover", function(event, d) {
+                        let nameList = d["Name"].split(",")
+                        let firstName = nameList[1].replace('"', "")
+                        let lastName = nameList[0].replace('"', "")
                         d3.select("#tooltip")
                             .style("display", "block")
-                            let nameList = d["Name"].split(",")
-                            let firstName = nameList[1].replace('"', "")
-                            let lastName = nameList[0].replace('"', "")
                             .html(`${firstName}<br> ${lastName} }<br>${d["Current Team"]}<br> ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
                     })
 
