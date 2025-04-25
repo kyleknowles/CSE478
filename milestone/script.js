@@ -41,6 +41,7 @@
                 const yScale = d3.scaleLinear()
                     .domain([0, maxAge])
                     .range([0, 100]);        
+                
                 alert(maxAge)
 
                 const bars = svg.selectAll("rect")
