@@ -25,7 +25,7 @@
                 //alert("Before d3")
                 const svg = d3.select("#svg1");
                 //alert("Pass d3.select(svg)")
-                const barWidth = 40;
+                const barWidth = 5;
                 let data2 = data
                 data = data.filter(d => d["Height (inches)"] > 0);
                 //data = data.filter(d => d["Current Status"] == Active);
