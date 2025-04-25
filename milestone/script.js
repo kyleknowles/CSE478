@@ -1,6 +1,66 @@
 
     
 
+function smallTall() {
+    data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+    heightChart();
+}
+
+function tallSmall() {
+    data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+    heightChart();
+}
+
+function heightChart() {
+    data = data.filter(d => d["Height (inches)"] > 0);
+    const svg = d3.select("#svg1");
+    
+    const barWidth = 10;
+
+    let data2 = data
+    
+    //data = data.filter(d => d["Current Status"] == Active);
+    
+
+    
+
+    const maxHeight = Math.max(...data.map(d => d["Height (inches)"])); // Find the max value of Height
+    const minHeight = Math.min(...data.map(d => d["Height (inches)"])); // Find the min value of Height
+
+    const yScale = d3.scaleLinear()
+        .domain([minHeight + 1, maxHeight])
+        .range([0, 100]);        
+    
+    //alert(maxHeight)
+
+    const heightConstant = 8
+    const minHeightBar = 3
+
+    const bars = svg.selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
+        .attr("y", d => (400 - (d["Height (inches)"] - minHeight + minHeightBar) * heightConstant)) 
+        .attr("width", barWidth)
+        .attr("height", d => (d["Height (inches)"] - minHeight + minHeightBar) * heightConstant)
+        .attr("fill", "steelblue")
+        .on("mouseover", function(event, d) {
+            let nameList = d["Name"].split(",")
+            let firstName = nameList[1].replace('"', "")
+            let lastName = nameList[0].replace('"', "")
+            d3.select(this) 
+                .style("fill", "lightblue")
+            d3.select("#tooltip")
+            
+                .style("display", "block")
+                .html(`${firstName} ${lastName}<br>${d["Current Team"]}<br> ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
+        })
+        .on("mouseout", function(event, d) {
+            d3.select(this)
+                .style("fill", "steelblue")
+        })
+    }
 
 
     //let data = []
@@ -22,69 +82,8 @@
             })
             .then (data => {
                 
-
+                    smallTall();
         
-                function smallTall() {
-                    data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
-                    heightChart();
-                }
-
-                function tallSmall() {
-                    data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
-                    heightChart();
-                }
-
-                function heightChart() {
-                    data = data.filter(d => d["Height (inches)"] > 0);
-                    const svg = d3.select("#svg1");
-                    
-                    const barWidth = 10;
-
-                    let data2 = data
-                    
-                    //data = data.filter(d => d["Current Status"] == Active);
-                    
-
-                    
-
-                    const maxHeight = Math.max(...data.map(d => d["Height (inches)"])); // Find the max value of Height
-                    const minHeight = Math.min(...data.map(d => d["Height (inches)"])); // Find the min value of Height
-
-                    const yScale = d3.scaleLinear()
-                        .domain([minHeight + 1, maxHeight])
-                        .range([0, 100]);        
-                    
-                    //alert(maxHeight)
-
-                    const heightConstant = 8
-                    const minHeightBar = 3
-
-                    const bars = svg.selectAll("rect")
-                        .data(data)
-                        .enter()
-                        .append("rect")
-                        .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
-                        .attr("y", d => (400 - (d["Height (inches)"] - minHeight + minHeightBar) * heightConstant)) 
-                        .attr("width", barWidth)
-                        .attr("height", d => (d["Height (inches)"] - minHeight + minHeightBar) * heightConstant)
-                        .attr("fill", "steelblue")
-                        .on("mouseover", function(event, d) {
-                            let nameList = d["Name"].split(",")
-                            let firstName = nameList[1].replace('"', "")
-                            let lastName = nameList[0].replace('"', "")
-                            d3.select(this) 
-                                .style("fill", "lightblue")
-                            d3.select("#tooltip")
-                            
-                                .style("display", "block")
-                                .html(`${firstName} ${lastName}<br>${d["Current Team"]}<br> ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
-                        })
-                        .on("mouseout", function(event, d) {
-                            d3.select(this)
-                                .style("fill", "steelblue")
-                        })
-                    }
-
                     /*
                     const svg2 = d3.select("#svg2");
                     
