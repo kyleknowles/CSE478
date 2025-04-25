@@ -1,5 +1,8 @@
 
-                            
+    
+
+
+
     //let data = []
     fetch("Basic_Stats.csv")
         .then(response => response.text())
@@ -18,17 +21,28 @@
                 return data
             })
             .then (data => {
-               
+                data = data.filter(d => d["Height (inches)"] > 0);
+
+                data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+
+                function smallTall() {
+                    data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                }
+
+                function tallSmall() {
+                    data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                }
+
                 const svg = d3.select("#svg1");
                 
                 const barWidth = 10;
 
                 let data2 = data
-                data = data.filter(d => d["Height (inches)"] > 0);
+                
                 //data = data.filter(d => d["Current Status"] == Active);
                 
 
-                data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                
 
                 const maxHeight = Math.max(...data.map(d => d["Height (inches)"])); // Find the max value of Height
                 const minHeight = Math.min(...data.map(d => d["Height (inches)"])); // Find the min value of Height
@@ -67,7 +81,7 @@
                             .style("fill", "steelblue")
                     })
 
-
+                /*
                 const svg2 = d3.select("#svg2");
                 
                 data2 = data2.filter(d => d["Weight (lbs)"] > 1);
@@ -107,7 +121,7 @@
                         .html(`${firstName} ${lastName}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} lbs`);
                 })
        
-                
+                */
             });
 
             
