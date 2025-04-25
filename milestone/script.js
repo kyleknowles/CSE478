@@ -1,6 +1,7 @@
 
     
 let data = []
+let data2 = []
 
     //let data = []
     fetch("Basic_Stats.csv")
@@ -142,7 +143,7 @@ let data = []
                 function weightChart() {
                     const svg2 = d3.select("#svg2");
                     svg2.selectAll("*").remove(); 
-                    
+
                     data2 = data2.filter(d => d["Weight (lbs)"] > 1);
                     data2.sort((a, b) => b["Weight (lbs)"] - a["Weight (lbs)"]);
                     //data = data.filter(d => d["Current Status"] == Active);
