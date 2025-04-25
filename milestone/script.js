@@ -30,7 +30,7 @@
 
 
                 
-                data = data.filter(d => d["Current Status"] > 0);
+                data = data.filter(d => d["Height Inches"] > 0);
                 //data = data.filter(d => d["Current Status"] == Active);
                 
 
