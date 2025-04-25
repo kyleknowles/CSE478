@@ -61,24 +61,23 @@
 
 
                 const svg2 = d3.select("#svg2");
-                  
                 
-                
-                data.sort((a, b) => b["Weight (lbs)"] - a["Weight (lbs)"]);
+                let data2 = data
+
+                data2.sort((a, b) => b["Weight (lbs)"] - a["Weight (lbs)"]);
                 //data = data.filter(d => d["Current Status"] == Active);
                     
 
-                const maxWeight = Math.max(...data.map(d => d["Weight (lbs)"])); // Find the max value of Weight
-                const minWeight = Math.min(...data.map(d => d["Weight (lbs)"])); // Find the min value of Weight
+                const maxWeight = Math.max(...data2.map(d => d["Weight (lbs)"])); // Find the max value of Weight
+                const minWeight = Math.min(...data2.map(d => d["Weight (lbs)"])); // Find the min value of Weight
                 
                      
-            
-                alert("Hello")
 
                 const weightConstant = 20
-
-                bars = svg2.selectAll("rect")
-                .data(data)
+                
+                alert("Hello")
+                const bars2 = svg2.selectAll("rect")
+                .data(data2)
                 .enter()
                 .append("rect")
                 .attr("x", (d, i) => i * (barWidth + 5))
@@ -86,11 +85,13 @@
                 .attr("width", barWidth)
                 .attr("height", d => (d["Weight (lbs)"] - minWeight + 3) *  weightConstant)
                 .attr("fill", "steelblue")
+                /*
                 .on("mouseover", function(event, d) {
                     d3.select("#tooltip")
                         .style("display", "block")
                         .html(`${d["Name"]}<br>Weight: ${d["Weight (lbs)"]}"`);
                 })
+                        */
                 
             });
 
