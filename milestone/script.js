@@ -83,6 +83,7 @@ function heightChart() {
             .then (data => {
                 
                     smallTall();
+                    alert("Done")
         
                     /*
                     const svg2 = d3.select("#svg2");
