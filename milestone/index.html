@@ -35,12 +35,14 @@
             .then (data => {
                // alert(data)
                alert("Hello")
+
+               const maxAge = Math.max(...data.map(d => d.Age)); // Find the max value of Age
+                alert(maxAge)
                 const svg = d3.select("svg");
                 const barWidth = 40
                 alert("Hello")
 
-                const maxAge = Math.max(...data.map(d => d.Age)); // Find the max value of Age
-                alert(maxAge)
+                
                 const yScale = d3.scaleLinear()
                     .domain([0, maxAge])
                     .range([0, 100]);  // Adjust the 100 to your SVG's height
