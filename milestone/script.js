@@ -1,5 +1,6 @@
 
     
+let data = []
 
 function smallTall() {
     data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
@@ -10,6 +11,7 @@ function tallSmall() {
     data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
     heightChart();
 }
+
 
 function heightChart() {
     data = data.filter(d => d["Height (inches)"] > 0);
