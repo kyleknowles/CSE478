@@ -54,7 +54,9 @@
                     .on("mouseover", function(event, d) {
                         d3.select("#tooltip")
                             .style("display", "block")
-                            .html(`${d["Name"]}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches"`);
+                            let nameList = d["Name"].replace('"', '').split(",")
+        
+                            .html(`${nameList[1]}<br> ${nameList[0]} ${d["Current Team"]}<br> ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
                     })
 
 
@@ -86,7 +88,7 @@
                 .on("mouseover", function(event, d) {
                     d3.select("#tooltip")
                         .style("display", "block")
-                        .html(`${d["Name"]}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} lbs"`);
+                        .html(`${d["Name"]}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} lbs`);
                 })
                     
                 
