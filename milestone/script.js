@@ -76,7 +76,7 @@
                 .enter()
                 .append("rect")
                 .attr("x", (d, i) => i * (barWidth +  (barWidth/2)))
-                .attr("y", d => (maxWeight - d["Weight (lbs)"]))
+                .attr("y", d => (maxWeight - d["Weight (lbs)"]) * 4)
                 .attr("width", barWidth)
                 .attr("height", d => (d["Weight (lbs)"] - minWeight) *  weightConstant)
                 .attr("fill", "steelblue")
