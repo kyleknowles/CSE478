@@ -11,7 +11,7 @@
                 //dict = {}
                     return headers.reduce((obj, key, i) => {
                         
-                        obj[key] = isNaN(values[i]) ? 0 : values[i]
+                        obj[key] = values[i]
                         return obj; }, {});
                         //data.append(dict);
                 });
