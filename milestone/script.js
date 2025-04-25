@@ -63,11 +63,12 @@
                 const svg2 = d3.select("#svg2");
                   
               
-                data = data.filter(d => d["Height (inches)"] > 0);
+                
+                
+                data.sort((a, b) => b["Weight (lbs)"] - a["Weight (lbs)"]);
                 //data = data.filter(d => d["Current Status"] == Active);
                     
-    
-                data.sort((a, b) => b["Weight(lbs)"] - a["Height (lbs)"]);
+                data.sort((a, b) => b["Weight(lbs)"] - a["Weight (lbs)"]);
 
                 const maxWeight = Math.max(...data.map(d => d["Weight (lbs)"])); // Find the max value of Height
                 const minWeight = Math.min(...data.map(d => d["Weight (lbs)"])); // Find the min value of Height
