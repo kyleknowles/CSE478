@@ -20,9 +20,7 @@
             .then (data => {
                // alert(data)
                //alert("Hello")
-
-               const maxAge = Math.max(...data.map(d => d.Age)); // Find the max value of Age
-                //alert(maxAge)
+                
                 
                 //alert("Before d3")
                 const svg = d3.select("svg");
@@ -38,6 +36,9 @@
                 data = data.filter(d => d.Age >= 0 && d.Age <= 100);
                 data.sort((a, b) => b.Age - a.Age);
 
+                const maxAge = Math.max(...data.map(d => d.Age)); // Find the max value of Age
+
+                alert(maxAge)
                 const bars = svg.selectAll("rect")
                     .data(data)
                     .enter()
