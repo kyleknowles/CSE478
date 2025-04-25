@@ -34,6 +34,19 @@
             })
             .then (data => {
                 alert(data)
+                const svg = d3.select("svg");
+                const barWidth = 40
+                //alert("Hello")
+
+                const bars = svg.selectAll("rect")
+                    .data(data)
+                    .enter()
+                    .append("rect")
+                    .attr("x", (d, i) => i * (barWidth + 5))
+                    .attr("y", d => 100 - d.Age)
+                    .attr("width", barWidth)
+                    .attr("height", d => d.Age)
+                    .attr("fill", "steelblue")
             });
             
        
@@ -47,19 +60,7 @@
         .range([0, 400])
         .padding(0.1);
     */
-    const svg = d3.select("svg");
-    const barWidth = 40
-    //alert("Hello")
 
-    const bars = svg.selectAll("rect")
-        .data(data)
-        .enter()
-        .append("rect")
-        .attr("x", (d, i) => i * (barWidth + 5))
-        .attr("y", d => 100 - d.Age)
-        .attr("width", barWidth)
-        .attr("height", d => d.Age)
-        .attr("fill", "steelblue")
    
 
 
