@@ -82,9 +82,9 @@
                 .attr("x", (d, i) => i * (barWidth + 5))
                 .attr("y", d => (maxWeight - d["Weight (lbs)"]) *  weightConstant)
                 .attr("width", barWidth)
-                .attr("height", d => (d["Weight (lbs)"] - minWeight + 3) *  weightConstant)
+                .attr("height", d => (d["Weight (lbs)"] - minWeight) *  weightConstant)
                 .attr("fill", "steelblue")
-                
+    
                 .on("mouseover", function(event, d) {
                     d3.select("#tooltip")
                         .style("display", "block")
