@@ -45,7 +45,7 @@
                 
                 //alert(maxHeight)
 
-                const heightConstant = 10
+                const heightConstant = 20
 
                 const bars = svg.selectAll("rect")
                     .data(data)
@@ -56,4 +56,10 @@
                     .attr("width", barWidth)
                     .attr("height", d => (d["Height (inches)"] - minHeight + 3) *  heightConstant)
                     .attr("fill", "steelblue")
+                    .on("click", function(event, d) {
+                        d3.select(this).classed("highlighted", function() {
+                            return !d3.select(this).classed("highlighted");
+                    
+                        });
+                    });
             });
