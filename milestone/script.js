@@ -81,7 +81,7 @@ let data = []
             function heightChart() {
                 data = data.filter(d => d["Height (inches)"] > 0);
                 const svg = d3.select("#svg1");
-                
+                svg.selectAll("*").remove(); 
                 const barWidth = 10;
             
                 let data2 = data
