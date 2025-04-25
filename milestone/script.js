@@ -23,12 +23,9 @@
                 
                 
                 //alert("Before d3")
-                const svg = d3.select("svg");
+                const svg = d3.select("svg1");
                 //alert("Pass d3.select(svg)")
                 const barWidth = 40;
-                
-
-
                 
                 data = data.filter(d => d["Height (inches)"] > 0);
                 //data = data.filter(d => d["Current Status"] == Active);
@@ -61,4 +58,41 @@
                             .style("display", "block")
                             .html(`${d["Name"]}<br>Height: ${d["Height (inches)"]}"`);
                     })
+
+
+                const svg2 = d3.select("svg2");
+                  
+              
+                data = data.filter(d => d["Height (inches)"] > 0);
+                //data = data.filter(d => d["Current Status"] == Active);
+                    
+    
+                data.sort((a, b) => b["Weight(lbs)"] - a["Height (lbs)"]);
+
+                const maxWeight = Math.max(...data.map(d => d["Weight (lbs)"])); // Find the max value of Height
+                const minWeight = Math.min(...data.map(d => d["Weight (lbs)"])); // Find the min value of Height
+                
+                     
+            
+            //alert(maxHeight)
+
+                const weightConstant = 20
+
+                const bars2 = svg2.selectAll("rect")
+                .data(data)
+                .enter()
+                .append("rect")
+                .attr("x", (d, i) => i * (barWidth + 5))
+                .attr("y", d => (maxWeight - d["Weight (lbs)"]) *  weightConstant)
+                .attr("width", barWidth)
+                .attr("height", d => (d["Weight (lbs)"] - minWeight + 3) *  weightConstant)
+                .attr("fill", "steelblue")
+                .on("mouseover", function(event, d) {
+                    d3.select("#tooltip")
+                        .style("display", "block")
+                        .html(`${d["Name"]}<br>Weight: ${d["Weight (lbs)"]}"`);
+                })
+                
             });
+
+            
