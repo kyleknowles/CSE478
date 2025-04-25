@@ -46,9 +46,9 @@
                     .enter()
                     .append("rect")
                     .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
-                    .attr("y", d => d["Height (inches)"]) 
+                    .attr("y", d => (d["Height (inches)"] * 2)) 
                     .attr("width", barWidth)
-                    .attr("height", d => d["Height (inches)"] * 3)
+                    .attr("height", d => d["Height (inches)"] * 2)
                     .attr("fill", "steelblue")
                     .on("mouseover", function(event, d) {
                         d3.select("#tooltip")
