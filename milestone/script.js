@@ -54,8 +54,8 @@
                     .on("mouseover", function(event, d) {
                         d3.select("#tooltip")
                             .style("display", "block")
-                            let nameList = d["Name"].replace('"', '').split(",")
-        
+                            let nameList = d["Name"].split(",")
+
                             .html(`${nameList[1]}<br> ${nameList[0]} ${d["Current Team"]}<br> ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
                     })
 
