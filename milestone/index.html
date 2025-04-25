@@ -10,8 +10,8 @@
             <body>
             <svg width="5000" height="120"></svg>
            
-            <button onclick = "load()">Button</button>
-            <!-- <script src="script.js"></script> -->
+            <!--<button onclick = "load()">Button</button>
+            <<script src="script.js"></script> -->
 
             <script>    
                     
@@ -40,6 +40,7 @@
 
                 const maxAge = Math.max(...data.map(d => d.Age)); // Find the max value of Age
                 const yScale = d3.scaleLinear()
+                    alert(maxAge)
                     .domain([0, maxAge])
                     .range([0, 100]);  // Adjust the 100 to your SVG's height
 
