@@ -15,13 +15,13 @@
 
             <script>    
                     
-                
+    let data = []
     fetch("Basic_Stats.csv")
         .then(response => response.text())
         .then(csv => {
                 let rows = csv.split("\n");
                 let headers = rows[0].split(",");
-                let data = rows.slice(1).map(row => {
+                data = rows.slice(1).map(row => {
                 let values = row.split(/,(?! )(?<! )/);
                 //dict = {}
                 return headers.reduce((obj, key, i) => {
@@ -34,7 +34,7 @@
     
 
     
-    alert("HELLO")
+    alert(data)
     
     /*
     const xScale = d3.scaleBand()
