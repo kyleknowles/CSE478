@@ -36,9 +36,7 @@
                 const maxAge = Math.max(...data.map(d => d.Age)); // Find the max value of Age
 
                             
-                const yScale = d3.scaleLinear()
-                    .domain([0, maxAge])
-                    .range([0, 1000]);  // Adjust the 100 to your SVG's height
+               
 
                 alert(maxAge)
                 const bars = svg.selectAll("rect")
@@ -46,7 +44,7 @@
                     .enter()
                     .append("rect")
                     .attr("x", (d, i) => i * (barWidth + 5))
-                    .attr("y", d => 100 - d.Age)
+                    .attr("y", d => 200 - d.Age)
                     .attr("width", barWidth)
                     .attr("height", d => d.Age)
                     .attr("fill", "steelblue")
