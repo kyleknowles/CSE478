@@ -22,9 +22,9 @@ const barWidth = 10;
                 return data
             })
             .then (data => {
-                    data2 = data
+                   
                     smallTall();
-                    smallTall2();
+                    lightHeavy();
         
                     /*
                     const svg2 = d3.select("#svg2");
@@ -142,27 +142,27 @@ const barWidth = 10;
 
 
                 function weightChart() {
-                    alert("3")
+                    
                     const svg2 = d3.select("#svg2");
-                    alert("4")
+                    
                     svg2.selectAll("*").remove(); 
 
-                    data2 = data2.filter(d => d["Weight (lbs)"] > 1);
+                    data = data.filter(d => d["Weight (lbs)"] > 1);
                    
                     //data = data.filter(d => d["Current Status"] == Active);
                     
 
-                    const maxWeight = Math.max(...data2.map(d => d["Weight (lbs)"])); // Find the max value of Weight
-                    const minWeight = Math.min(...data2.map(d => d["Weight (lbs)"])); // Find the min value of Weight
+                    const maxWeight = Math.max(...data.map(d => d["Weight (lbs)"])); // Find the max value of Weight
+                    const minWeight = Math.min(...data.map(d => d["Weight (lbs)"])); // Find the min value of Weight
                     
-                     alert("5")
+                    
 
                     const weightConstant = 1.5
                     const minWeightBar = 3
                     
                     const bars2 = svg2.selectAll("rect")
                     
-                    .data(data2)
+                    .data(data)
                     .enter()
                     .append("rect")
                     .attr("x", (d, i) => i * (barWidth +  (barWidth/2)))
@@ -174,7 +174,7 @@ const barWidth = 10;
                     let nameList = d["Name"].split(",")
                     let firstName = nameList[1].replace('"', "")
                     let lastName = nameList[0].replace('"', "")
-                    alert("6")
+                    
                     .on("mouseover", function(event, d) {
                         d3.select(this) 
                             .style("fill", "red")
@@ -185,14 +185,14 @@ const barWidth = 10;
                     })
                 }
             
-                function smallTall2() {
-                    data2.sort((a, b) =>  a["Weight(lbs)"] - b["Weight(lbs)"]);
+                function lightHeavy() {
+                    data.sort((a, b) =>  a["Weight(lbs)"] - b["Weight(lbs)"]);
                     weightChart();
                 }
                 
-                function tallSmall2() {
-                    alert("1")
-                    data2.sort((a, b) =>  b["Weight(lbs)"] - a["Weight(lbs)"]);
-                    alert("2")
+                function HeavyLight() {
+                   
+                    data.sort((a, b) =>  b["Weight(lbs)"] - a["Weight(lbs)"]);
+                    
                     weightChart();
                 }
