@@ -23,7 +23,7 @@
             .then (data => {
                 data = data.filter(d => d["Height (inches)"] > 0);
 
-                data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                //data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
 
                 function smallTall() {
                     data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
