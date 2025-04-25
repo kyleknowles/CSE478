@@ -10,31 +10,33 @@
             <body>
             <svg width="5000" height="120"></svg>
            
-            <!--<button onclick = "load()">Button</button> -->
+            <button onclick = "load()">Button</button>
             <!-- <script src="script.js"></script> -->
 
             <script>    
                     
-
-    fetch("Basic_Stats.csv")
-        .then(response => response.text())
-        .then(csv => {
-                let rows = csv.split("\n");
-                let headers = rows[0].split(",");
-                let data = rows.slice(1).map(row => {
-                let values = row.split(/,(?! )(?<! )/);
-                //dict = {}
-                return headers.reduce((obj, key, i) => {
-                    
-                    obj[key] = isNan(values[i]) ? 0 : values[i]
-                    return obj; }, {});
-                    //data.append(dict);
-                    });
-                });
+                function load() {
+                    fetch("Basic_Stats.csv")
+                        .then(response => response.text())
+                        .then(csv => {
+                                let rows = csv.split("\n");
+                                let headers = rows[0].split(",");
+                                let data = rows.slice(1).map(row => {
+                                let values = row.split(/,(?! )(?<! )/);
+                                //dict = {}
+                                return headers.reduce((obj, key, i) => {
+                                    
+                                    obj[key] = isNan(values[i]) ? 0 : values[i]
+                                    return obj; }, {});
+                                    //data.append(dict);
+                                    });
+                                });
+                    alert(data)
+                }
     
 
     
-    alert(data)
+   
     
     /*
     const xScale = d3.scaleBand()
