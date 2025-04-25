@@ -35,6 +35,7 @@
                     .domain([0, maxAge])
                     .range([0, 100]);  // Adjust the 100 to your SVG's height
                 
+                data = data.filter(d => d.Age >= 0 && d.Age <= 100);
                 data.sort((a, b) => b.Age - a.Age);
                 const bars = svg.selectAll("rect")
                     .data(data)
