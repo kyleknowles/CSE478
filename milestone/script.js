@@ -23,6 +23,7 @@ let data2 = []
             .then (data => {
                 
                     smallTall();
+                    smallTall2();
         
                     /*
                     const svg2 = d3.select("#svg2");
