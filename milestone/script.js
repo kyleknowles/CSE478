@@ -31,12 +31,12 @@
 
                 
                 data = data.filter(d => d.Age >= 0 && d.Age <= 100);
-                data = data.filter(d => d["Current Status"] == Active);
+                //data = data.filter(d => d["Current Status"] == Active);
                 
 
                 data.sort((a, b) => b.Age - a.Age);
 
-                const maxAge = Math.max(...data.map(d => d.Age)); // Find the max value of Age
+                const maxAge = Math.max(...data.map(d => d["Height (inches)"])); // Find the max value of Age
 
                 const yScale = d3.scaleLinear()
                     .domain([0, maxAge])
@@ -49,8 +49,8 @@
                     .enter()
                     .append("rect")
                     .attr("x", (d, i) => i * (barWidth + 5))
-                    .attr("y", d => maxAge - yScale(d.Age))
+                    .attr("y", d => maxAge - yScale(d["Height (inches)"]))
                     .attr("width", barWidth)
-                    .attr("height", d => yScale(d.Age))
+                    .attr("height", d => yScale(d["Height (inches)"]))
                     .attr("fill", "steelblue")
             });
