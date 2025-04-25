@@ -28,15 +28,17 @@
                 const barWidth = 40;
                 
 
-                
-                const yScale = d3.scaleLinear()
-                    .domain([0, maxAge])
-                    .range([0, 1000]);  // Adjust the 100 to your SVG's height
+
                 
                 data = data.filter(d => d.Age >= 0 && d.Age <= 100);
                 data.sort((a, b) => b.Age - a.Age);
 
                 const maxAge = Math.max(...data.map(d => d.Age)); // Find the max value of Age
+
+                            
+                const yScale = d3.scaleLinear()
+                    .domain([0, maxAge])
+                    .range([0, 1000]);  // Adjust the 100 to your SVG's height
 
                 alert(maxAge)
                 const bars = svg.selectAll("rect")
