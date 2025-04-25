@@ -61,7 +61,7 @@
                 const svg2 = d3.select("#svg2");
                 
                 data2 = data2.filter(d => d["Weight (lbs)"] > 1);
-                data2.sort((a, b) => a["Weight (lbs)"] - b["Weight (lbs)"]);
+                data2.sort((a, b) => b["Weight (lbs)"] - a["Weight (lbs)"]);
                 //data = data.filter(d => d["Current Status"] == Active);
                     
 
