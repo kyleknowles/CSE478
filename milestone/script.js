@@ -39,16 +39,16 @@
                 
                 //alert(maxHeight)
 
-                const heightConstant = 20
+                const heightConstant = 8
 
                 const bars = svg.selectAll("rect")
                     .data(data)
                     .enter()
                     .append("rect")
                     .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
-                    .attr("y", d => (400 - (d["Height (inches)"] - minHeight))) 
+                    .attr("y", d => (400 - (d["Height (inches)"] - minHeight) / heightConstant)) 
                     .attr("width", barWidth)
-                    .attr("height", d => (d["Height (inches)"] - minHeight + 10))
+                    .attr("height", d => (d["Height (inches)"] - minHeight) * heightConstant)
                     .attr("fill", "steelblue")
                     .on("mouseover", function(event, d) {
                         d3.select("#tooltip")
