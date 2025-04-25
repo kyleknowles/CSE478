@@ -36,10 +36,11 @@
 
                 data.sort((a, b) => b.Age - a.Age);
 
-                const maxAge = Math.max(...data.map(d => d["Height (inches)"])); // Find the max value of Age
+                const maxHeight = Math.max(...data.map(d => d["Height (inches)"])); // Find the max value of Height
+                const minHeight = Math.max(...data.map(d => d["Height (inches)"])); // Find the min value of Height
 
                 const yScale = d3.scaleLinear()
-                    .domain([0, maxAge])
+                    .domain([minHeight + 1, maxHeight])
                     .range([0, 100]);        
                 
                 alert(maxAge)
@@ -49,8 +50,8 @@
                     .enter()
                     .append("rect")
                     .attr("x", (d, i) => i * (barWidth + 5))
-                    .attr("y", d => maxAge - d["Height (inches)"])
+                    .attr("y", d => maxHeight - yScale(d["Height (inches)"]))
                     .attr("width", barWidth)
-                    .attr("height", d => d["Height (inches)"])
+                    .attr("height", d => yScale(d["Height (inches)"]))
                     .attr("fill", "steelblue")
             });
