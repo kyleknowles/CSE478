@@ -53,11 +53,11 @@
                     .attr("fill", "steelblue")
                     .on("mouseover", function(event, d) {
                         let nameList = d["Name"].split(",")
-                        let firstName = nameList[1].replace('"', "").replace(" }","")
+                        let firstName = nameList[1].replace('"', "")
                         let lastName = nameList[0].replace('"', "")
                         d3.select("#tooltip")
                             .style("display", "block")
-                            .html(`${firstName} ${lastName} }<br>${d["Current Team"]}<br> ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
+                            .html(`${firstName} ${lastName}<br>${d["Current Team"]}<br> ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
                     })
 
 
@@ -86,10 +86,12 @@
                 .attr("height", d => (d["Weight (lbs)"] - minWeight + minWeightBar) * weightConstant)
                 .attr("fill", "steelblue")
     
-                .on("mouseover", function(event, d) {
-                    d3.select("#tooltip")
-                        .style("display", "block")
-                        .html(`${d["Name"]}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} lbs`);
+                let nameList = d["Name"].split(",")
+                let firstName = nameList[1].replace('"', "")
+                let lastName = nameList[0].replace('"', "")
+                d3.select("#tooltip")
+                    .style("display", "block")
+                    .html(`${firstName} ${lastName}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} lbs`);
                 })
                     
                 
