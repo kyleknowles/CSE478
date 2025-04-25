@@ -71,15 +71,16 @@
                 
 
                 const weightConstant = 20
+                const minWeightBar = 3
                 
                 const bars2 = svg2.selectAll("rect")
                 .data(data2)
                 .enter()
                 .append("rect")
                 .attr("x", (d, i) => i * (barWidth +  (barWidth/2)))
-                .attr("y", d => 0)
+                .attr("y", d => (400 - (d["Weight (lbs)"] - minWeight + minWeightBar) * weightConstant)) 
                 .attr("width", barWidth)
-                .attr("height", d => (d["Weight (lbs)"] - minWeight))
+                .attr("height", d => (d["Weight (lbs)"] - minWeight + minWeightBar) * weightConstant)
                 .attr("fill", "steelblue")
     
                 .on("mouseover", function(event, d) {
