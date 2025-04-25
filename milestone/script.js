@@ -2,6 +2,7 @@
     
 let data = []
 let data2 = []
+const barWidth = 10;
 
     //let data = []
     fetch("Basic_Stats.csv")
@@ -84,7 +85,6 @@ let data2 = []
                 data = data.filter(d => d["Height (inches)"] > 0);
                 const svg = d3.select("#svg1");
                 svg.selectAll("*").remove(); 
-                const barWidth = 10;
             
                 let data2 = data
                 
@@ -161,6 +161,7 @@ let data2 = []
                     const minWeightBar = 3
                     
                     const bars2 = svg2.selectAll("rect")
+                    
                     .data(data2)
                     .enter()
                     .append("rect")
