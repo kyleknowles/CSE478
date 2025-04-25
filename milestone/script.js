@@ -46,7 +46,7 @@
                     .enter()
                     .append("rect")
                     .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
-                    .attr("y", d => 100 + d["Height (inches)"])
+                    .attr("y", d => d["Height (inches)"])
                     .attr("width", barWidth)
                     .attr("height", d => (d["Height (inches)"] - minHeight))
                     .attr("fill", "steelblue")
