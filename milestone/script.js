@@ -53,7 +53,7 @@
                     .on("mouseover", function(event, d) {
                         d3.select("#tooltip")
                             .style("display", "block")
-                            .html(`${d["Name"]}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Weight: ${d["Height (inches)"]}"`);
+                            .html(`${d["Name"]}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches"`);
                     })
 
 
@@ -75,7 +75,7 @@
                 .data(data2)
                 .enter()
                 .append("rect")
-                .attr("x", (d, i) => i * (barWidth + barWidth/2)))
+                .attr("x", (d, i) => i * (barWidth +  (barWidth/2)))
                 .attr("y", d => (maxWeight - d["Weight (lbs)"]) * 4)
                 .attr("width", barWidth)
                 .attr("height", d => (d["Weight (lbs)"] - minWeight) *  weightConstant)
@@ -84,7 +84,7 @@
                 .on("mouseover", function(event, d) {
                     d3.select("#tooltip")
                         .style("display", "block")
-                        .html(`${d["Name"]}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]}"`);
+                        .html(`${d["Name"]}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} lbs"`);
                 })
                     
                 
