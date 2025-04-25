@@ -18,14 +18,11 @@
                 return data
             })
             .then (data => {
-               // alert(data)
-               //alert("Hello")
-                
-                
-                //alert("Before d3")
+               
                 const svg = d3.select("#svg1");
-                //alert("Pass d3.select(svg)")
-                const barWidth = 5;
+                
+                const barWidth = 10;
+
                 let data2 = data
                 data = data.filter(d => d["Height (inches)"] > 0);
                 //data = data.filter(d => d["Current Status"] == Active);
@@ -48,7 +45,7 @@
                     .data(data)
                     .enter()
                     .append("rect")
-                    .attr("x", (d, i) => i * (barWidth + 5))
+                    .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
                     .attr("y", d => (maxHeight - d["Height (inches)"]) *  heightConstant)
                     .attr("width", barWidth)
                     .attr("height", d => (d["Height (inches)"] - minHeight + 3) * heightConstant)
@@ -78,7 +75,7 @@
                 .data(data2)
                 .enter()
                 .append("rect")
-                .attr("x", (d, i) => i * (barWidth + 5))
+                .attr("x", (d, i) => i * (barWidth/2))
                 .attr("y", d => (maxWeight - d["Weight (lbs)"]) * 4)
                 .attr("width", barWidth)
                 .attr("height", d => (d["Weight (lbs)"] - minWeight) *  weightConstant)
