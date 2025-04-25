@@ -34,7 +34,7 @@
                 //data = data.filter(d => d["Current Status"] == Active);
                 
 
-                data.sort((a, b) => b.Age - a.Age);
+                data.sort((a, b) => b["Height (inches)"] - a["Height (inches)"]);
 
                 const maxHeight = Math.max(...data.map(d => d["Height (inches)"])); // Find the max value of Height
                 const minHeight = Math.min(...data.map(d => d["Height (inches)"])); // Find the min value of Height
@@ -45,13 +45,15 @@
                 
                 //alert(maxHeight)
 
+                const heightConstant = 10
+
                 const bars = svg.selectAll("rect")
                     .data(data)
                     .enter()
                     .append("rect")
                     .attr("x", (d, i) => i * (barWidth + 5))
-                    .attr("y", d => (maxHeight - d["Height (inches)"]) * 10)
+                    .attr("y", d => (maxHeight - d["Height (inches)"]) *  heightConstant)
                     .attr("width", barWidth)
-                    .attr("height", d => (d["Height (inches)"] - minHeight) * 10)
+                    .attr("height", d => (d["Height (inches)"] - minHeight + 3) *  heightConstant)
                     .attr("fill", "steelblue")
             });
