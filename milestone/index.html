@@ -24,17 +24,22 @@
                 data = rows.slice(1).map(row => {
                 let values = row.split(/,(?! )(?<! )/);
                 //dict = {}
-                return headers.reduce((obj, key, i) => {
-                    
-                    obj[key] = isNan(values[i]) ? 0 : values[i]
-                    return obj; }, {});
-                    //data.append(dict);
-                    });
+                    return headers.reduce((obj, key, i) => {
+                        
+                        obj[key] = isNaN(values[i]) ? 0 : values[i]
+                        return obj; }, {});
+                        //data.append(dict);
                 });
-    
+                return data
+            })
+            .then (data => {
+                alert(data)
+            });
+            
+       
 
     
-    alert(data)
+    //alert(data)
     
     /*
     const xScale = d3.scaleBand()
