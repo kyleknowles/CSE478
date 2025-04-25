@@ -31,6 +31,8 @@
 
                 
                 data = data.filter(d => d.Age >= 0 && d.Age <= 100);
+                data = data.filter(d => d.Experience == "Active");
+
                 data.sort((a, b) => b.Age - a.Age);
 
                 const maxAge = Math.max(...data.map(d => d.Age)); // Find the max value of Age
