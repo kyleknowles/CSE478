@@ -30,7 +30,7 @@
 
 
                 
-                data = data.filter(d => d.Age >= 0 && d.Age <= 100);
+                data = data.filter(d => d.["Current Status"] > 0);
                 //data = data.filter(d => d["Current Status"] == Active);
                 
 
