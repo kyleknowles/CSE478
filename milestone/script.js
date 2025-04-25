@@ -21,7 +21,7 @@ let data2 = []
                 return data
             })
             .then (data => {
-                
+                    data2 = data
                     smallTall();
                     smallTall2();
         
@@ -142,6 +142,7 @@ let data2 = []
 
 
                 function weightChart() {
+
                     const svg2 = d3.select("#svg2");
                     svg2.selectAll("*").remove(); 
 
@@ -171,7 +172,6 @@ let data2 = []
                     let nameList = d["Name"].split(",")
                     let firstName = nameList[1].replace('"', "")
                     let lastName = nameList[0].replace('"', "")
-                    alert("???")
 
                     .on("mouseover", function(event, d) {
                         d3.select(this) 
