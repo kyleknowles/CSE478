@@ -34,7 +34,8 @@
                 const yScale = d3.scaleLinear()
                     .domain([0, maxAge])
                     .range([0, 100]);  // Adjust the 100 to your SVG's height
-
+                
+                data.sort((a, b) => b.Age - a.Age);
                 const bars = svg.selectAll("rect")
                     .data(data)
                     .enter()
