@@ -92,7 +92,7 @@
                 .on("mouseover", function(event, d) {
                     d3.select("#tooltip")
                         .style("display", "block")
-                        .style("background-color", "lightblue")
+                        .style("background-color", "red")
                         .html(`${firstName} ${lastName}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} lbs`);
                 })
        
