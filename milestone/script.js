@@ -77,7 +77,7 @@
 
                 const weightConstant = 20
 
-                const bars2 = svg2.selectAll("rect")
+                bars = svg2.selectAll("rect")
                 .data(data)
                 .enter()
                 .append("rect")
