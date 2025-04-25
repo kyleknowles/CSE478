@@ -70,7 +70,7 @@
                 
                 
 
-                const weightConstant = 1
+                const weightConstant = 1.5
                 const minWeightBar = 3
                 
                 const bars2 = svg2.selectAll("rect")
