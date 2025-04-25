@@ -1,44 +1,41 @@
-                    
-    let data = []
+    
+function load() {
     fetch("Basic_Stats.csv")
         .then(response => response.text())
-        .then(csv => {
+            .then(csv => {
                 let rows = csv.split("\n");
                 let headers = rows[0].split(",");
-                data = rows.slice(1).map(row => {
+                let data = rows.slice(1).map(row => {
                 let values = row.split(/,(?! )(?<! )/);
-                //dict = {}
-                    return headers.reduce((obj, key, i) => {
-                        
-                        obj[key] = isNaN(values[i]) ? 0 : values[i]
-                        return obj; }, {});
-                        //data.append(dict);
+                
+                return headers.reduce((obj, key, i) => {
+                    obj[key] = values[i];
+                    return obj; }, {});
+                    });
+                    alert(data); 
                 });
-                return data
-            })
-            .then (data => {
-               // alert(data)
-               alert("Hello")
+}
 
-               const maxAge = Math.max(...data.map(d => d.Age)); // Find the max value of Age
-                alert(maxAge)
-                
-                const svg = d3.select("svg");
-                const barWidth = 40
-                alert("Hello")
+    alert("F this");
+    const data = [
+        {id: 1, radius: 20},
+        {id: 2, radius: 25},
+        {id: 3, radius: 15},
+        {id: 4, radius: 30},
+        {id: 5, radius: 18}
+    ];
+    alert("F this2");
+    const svg = d3.select("svg");
+    
+    alert("F this3");
+    const circles = svg.selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", (d, i) => 60 + i * 80)
+        .attr("cy", 60)
+        .attr("r", d => d.radius)
+        .attr("fill", "steelblue")
+        
 
-                
-                const yScale = d3.scaleLinear()
-                    .domain([0, maxAge])
-                    .range([0, 100]);  // Adjust the 100 to your SVG's height
 
-                const bars = svg.selectAll("rect")
-                    .data(data)
-                    .enter()
-                    .append("rect")
-                    .attr("x", (d, i) => i * (barWidth + 5))
-                    .attr("y", d => 100 - d.Age)
-                    .attr("width", barWidth)
-                    .attr("height", d => d.Age)
-                    .attr("fill", "steelblue")
-            });
