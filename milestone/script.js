@@ -35,7 +35,9 @@
 
                 const maxAge = Math.max(...data.map(d => d.Age)); // Find the max value of Age
 
-                            
+                const yScale = d3.scaleLinear()
+                    .domain([0, maxAge])
+                    .range([0, 100]);        
                
 
                 alert(maxAge)
@@ -44,7 +46,7 @@
                     .enter()
                     .append("rect")
                     .attr("x", (d, i) => i * (barWidth + 5))
-                    .attr("y", d => 200 - d.Age)
+                    .attr("y", d => maxAge - d.Age)
                     .attr("width", barWidth)
                     .attr("height", d => d.Age)
                     .attr("fill", "steelblue")
