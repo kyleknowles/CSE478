@@ -37,7 +37,7 @@
                 data.sort((a, b) => b.Age - a.Age);
 
                 const maxHeight = Math.max(...data.map(d => d["Height (inches)"])); // Find the max value of Height
-                const minHeight = Math.max(...data.map(d => d["Height (inches)"])); // Find the min value of Height
+                const minHeight = Math.min(...data.map(d => d["Height (inches)"])); // Find the min value of Height
 
                 const yScale = d3.scaleLinear()
                     .domain([minHeight + 1, maxHeight])
