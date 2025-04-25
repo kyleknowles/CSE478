@@ -53,11 +53,11 @@
                     .attr("fill", "steelblue")
                     .on("mouseover", function(event, d) {
                         let nameList = d["Name"].split(",")
-                        let firstName = nameList[1].replace('"', "")
+                        let firstName = nameList[1].replace('"', "").replace(" }","")
                         let lastName = nameList[0].replace('"', "")
                         d3.select("#tooltip")
                             .style("display", "block")
-                            .html(`${firstName}<br> ${lastName} }<br>${d["Current Team"]}<br> ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
+                            .html(`${firstName} ${lastName} }<br>${d["Current Team"]}<br> ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
                     })
 
 
