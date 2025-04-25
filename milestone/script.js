@@ -1,6 +1,6 @@
 
                             
-    let data = []
+    //let data = []
     fetch("Basic_Stats.csv")
         .then(response => response.text())
         .then(csv => {
@@ -26,7 +26,7 @@
                 const svg = d3.select("#svg1");
                 //alert("Pass d3.select(svg)")
                 const barWidth = 40;
-                
+                let data2 = data
                 data = data.filter(d => d["Height (inches)"] > 0);
                 //data = data.filter(d => d["Current Status"] == Active);
                 
@@ -51,7 +51,7 @@
                     .attr("x", (d, i) => i * (barWidth + 5))
                     .attr("y", d => (maxHeight - d["Height (inches)"]) *  heightConstant)
                     .attr("width", barWidth)
-                    .attr("height", d => (d["Height (inches)"] - minHeight + 3) *  heightConstant)
+                    .attr("height", d => (d["Height (inches)"] - minHeight + 3) * heightConstant)
                     .attr("fill", "steelblue")
                     .on("mouseover", function(event, d) {
                         d3.select("#tooltip")
@@ -62,7 +62,6 @@
 
                 const svg2 = d3.select("#svg2");
                 
-                let data2 = data
                 data2 = data2.filter(d => d["Weight (lbs)"] > 0);
                 data2.sort((a, b) => b["Weight (lbs)"] - a["Weight (lbs)"]);
                 //data = data.filter(d => d["Current Status"] == Active);
@@ -80,7 +79,7 @@
                 .enter()
                 .append("rect")
                 .attr("x", (d, i) => i * (barWidth + 5))
-                .attr("y", d => (maxWeight - d["Weight (lbs)"]) *  weightConstant)
+                .attr("y", d => (maxWeight - d["Weight (lbs)"]))
                 .attr("width", barWidth)
                 .attr("height", d => (d["Weight (lbs)"] - minWeight) *  weightConstant)
                 .attr("fill", "steelblue")
