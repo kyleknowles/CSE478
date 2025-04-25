@@ -171,7 +171,7 @@ let data2 = []
                     let nameList = d["Name"].split(",")
                     let firstName = nameList[1].replace('"', "")
                     let lastName = nameList[0].replace('"', "")
-
+                    alert("???")
 
                     .on("mouseover", function(event, d) {
                         d3.select(this) 
