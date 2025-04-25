@@ -23,7 +23,7 @@
                 
                 
                 //alert("Before d3")
-                const svg = d3.select("svg1");
+                const svg = d3.select("#svg1");
                 //alert("Pass d3.select(svg)")
                 const barWidth = 40;
                 
@@ -60,7 +60,7 @@
                     })
 
 
-                const svg2 = d3.select("svg2");
+                const svg2 = d3.select("#svg2");
                   
               
                 data = data.filter(d => d["Height (inches)"] > 0);
