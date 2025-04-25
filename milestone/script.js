@@ -106,6 +106,7 @@
                 .on("mouseout", function(event, d) {
                     d3.select(this) 
                         .style("fill", "steelblue")
+                    alert("out")
         
                 })
        
