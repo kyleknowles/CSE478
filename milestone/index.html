@@ -15,45 +15,35 @@
 
             <script>    
                     
-                function load() {
-                    fetch("Basic_Stats.csv")
-                        .then(response => response.text())
-                        .then(csv => {
-                                let rows = csv.split("\n");
-                                let headers = rows[0].split(",");
-                                let data = rows.slice(1).map(row => {
-                                let values = row.split(/,(?! )(?<! )/);
-                                //dict = {}
-                                return headers.reduce((obj, key, i) => {
-                                    
-                                    obj[key] = isNan(values[i]) ? 0 : values[i]
-                                    return obj; }, {});
-                                    //data.append(dict);
-                                    });
-                                });
-                                return data
-                    
-                    //alert(data)
-                }
-    
+                    async function loadAndDraw() {
+    const response = await fetch("Basic_Stats.csv");
+    const csv = await response.text();
 
-    
-    load().then(data => {
-        const svg = d3.select("svg");
-        const barWidth = 40
-        
-        svg.selectAll("rect")
+    const rows = csv.trim().split("\n");
+    const headers = rows[0].split(",");
+    const data = rows.slice(1).map(row => {
+        const values = row.split(/,(?! )(?<! )/);
+        return headers.reduce((obj, key, i) => {
+            obj[key] = isNaN(values[i]) ? 0 : +values[i];
+            return obj;
+        }, {});
+    });
+
+    const svg = d3.select("svg");
+    const barWidth = 40;
+
+    svg.selectAll("rect")
         .data(data)
         .enter()
         .append("rect")
         .attr("x", (d, i) => i * (barWidth + 5))
-        .attr("y", d => 100 - d.Age)
+        .attr("y", d => 200 - d.Age)
         .attr("width", barWidth)
         .attr("height", d => d.Age)
-        .attr("fill", "steelblue")
-   
+        .attr("fill", "steelblue");
+}
 
-    })
+loadAndDraw();
     
     /*
     const xScale = d3.scaleBand()
