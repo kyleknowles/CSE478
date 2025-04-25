@@ -100,8 +100,13 @@
 
                     d3.select("#tooltip")
                         .style("display", "block")
-    
                         .html(`${firstName} ${lastName}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} lbs`);
+                })
+
+                .on("mouseout", function(event, d) {
+                    d3.select(this) 
+                        .style("fill", "steelblue")
+        
                 })
        
                 
