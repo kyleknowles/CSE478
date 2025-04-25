@@ -28,7 +28,7 @@
                 //data = data.filter(d => d["Current Status"] == Active);
                 
 
-                data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
 
                 const maxHeight = Math.max(...data.map(d => d["Height (inches)"])); // Find the max value of Height
                 const minHeight = Math.min(...data.map(d => d["Height (inches)"])); // Find the min value of Height
