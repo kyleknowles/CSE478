@@ -31,7 +31,7 @@
 
                 
                 data = data.filter(d => d.Age >= 0 && d.Age <= 100);
-                data = data.filter(d => d.Experience == "Active");
+                data = data.filter(d => d.["Current Status"] == "Active");
 
                 data.sort((a, b) => b.Age - a.Age);
 
