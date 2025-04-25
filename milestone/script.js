@@ -78,7 +78,7 @@
                 .attr("x", (d, i) => i * (barWidth +  (barWidth/2)))
                 .attr("y", d => maxWeight - d["Weight (lbs)"])
                 .attr("width", barWidth)
-                .attr("height", d => (d["Weight (lbs)"] - minWeight) *  weightConstant)
+                .attr("height", d => (d["Weight (lbs)"] - minWeight) *  weightConstant * 2)
                 .attr("fill", "steelblue")
     
                 .on("mouseover", function(event, d) {
