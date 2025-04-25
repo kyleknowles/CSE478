@@ -58,6 +58,7 @@
                     .attr("fill", "steelblue")
                     .on("click", function(event, d) {
                         d3.select(this).classed("highlighted", function() {
+                            alert(d.Name + " " + String(d["Height (inches)"]))
                             return !d3.select(this).classed("highlighted");
                     
                         });
