@@ -38,19 +38,11 @@
     
 
     
-                let data = load()
-    
-    /*
-    const xScale = d3.scaleBand()
-        .domain(["A", "B", "C", "D"])
-        .range([0, 400])
-        .padding(0.1);
-    */
-    const svg = d3.select("svg");
-    const barWidth = 40
-    //alert("Hello")
-
-    const bars = svg.selectAll("rect")
+    load().then(data => {
+        const svg = d3.select("svg");
+        const barWidth = 40
+        
+        svg.selectAll("rect")
         .data(data)
         .enter()
         .append("rect")
@@ -60,6 +52,19 @@
         .attr("height", d => d.Age)
         .attr("fill", "steelblue")
    
+
+    })
+    
+    /*
+    const xScale = d3.scaleBand()
+        .domain(["A", "B", "C", "D"])
+        .range([0, 400])
+        .padding(0.1);
+    */
+
+    //alert("Hello")
+
+
 
 
                 
