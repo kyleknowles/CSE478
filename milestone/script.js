@@ -63,7 +63,7 @@
                 const svg2 = d3.select("#svg2");
                 
                 let data2 = data
-
+                data2 = data2.filter(d => d["Weight (lbs)"] > 0);
                 data2.sort((a, b) => b["Weight (lbs)"] - a["Weight (lbs)"]);
                 //data = data.filter(d => d["Current Status"] == Active);
                     
@@ -71,11 +71,10 @@
                 const maxWeight = Math.max(...data2.map(d => d["Weight (lbs)"])); // Find the max value of Weight
                 const minWeight = Math.min(...data2.map(d => d["Weight (lbs)"])); // Find the min value of Weight
                 
-                     
+                
 
                 const weightConstant = 20
                 
-                alert("Hello")
                 const bars2 = svg2.selectAll("rect")
                 .data(data2)
                 .enter()
