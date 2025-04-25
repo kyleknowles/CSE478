@@ -55,6 +55,7 @@
                         d3.select("#tooltip")
                             .style("display", "block")
                             let nameList = d["Name"].split(",")
+                            alert(nameList[1])
 
                             .html(`${nameList[1]}<br> ${nameList[0]} ${d["Current Team"]}<br> ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
                     })
