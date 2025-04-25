@@ -10,7 +10,7 @@
             <body>
             <svg width="5000" height="120"></svg>
            
-            <button onclick = "load()">Button</button>
+            <!-- <button onclick = "load()">Button</button> -->
             <!-- <script src="script.js"></script> -->
 
             <script>    
@@ -31,12 +31,14 @@
                                     //data.append(dict);
                                     });
                                 });
-                    alert(data)
+                                return data
+                    
+                    //alert(data)
                 }
     
 
     
-   
+                let data = load()
     
     /*
     const xScale = d3.scaleBand()
