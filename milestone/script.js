@@ -46,8 +46,8 @@
                     .enter()
                     .append("rect")
                     .attr("x", (d, i) => i * (barWidth + 5))
-                    .attr("y", d => maxAge - d.Age)
+                    .attr("y", d => maxAge - yScale(d.Age))
                     .attr("width", barWidth)
-                    .attr("height", d => d.Age)
+                    .attr("height", d => yScale(d.Age))
                     .attr("fill", "steelblue")
             });
