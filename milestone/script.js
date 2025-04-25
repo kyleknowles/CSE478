@@ -84,13 +84,13 @@
                 .attr("width", barWidth)
                 .attr("height", d => (d["Weight (lbs)"] - minWeight + 3) *  weightConstant)
                 .attr("fill", "steelblue")
-                /*
+                
                 .on("mouseover", function(event, d) {
                     d3.select("#tooltip")
                         .style("display", "block")
                         .html(`${d["Name"]}<br>Weight: ${d["Weight (lbs)"]}"`);
                 })
-                        */
+                    
                 
             });
 
