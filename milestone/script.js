@@ -91,6 +91,10 @@ const barWidth = 10;
                     .on("mouseout", function(event, d) {
                         d3.select(this)
                             .style("fill", "steelblue")
+                        d3.select("#tooltip")
+                        
+                            .style("display", "none")
+                        
                     })
 
             }
