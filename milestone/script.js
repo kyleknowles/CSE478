@@ -52,7 +52,7 @@ var posFilter = "All";
                     var sorted = data;
                     
                     filtered = data.filter(d => d["Pos_Short"] == posFilter);
-                    alert(selected)
+                   
                     if (selected == "Small") {
                         filtered = filtered.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
                     } else if (selected == "Large") {
