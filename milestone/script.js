@@ -74,9 +74,9 @@ const barWidth = 10;
                     })
 
                     d3.select("#sortBy").on("change", (event) => {
-                        //const selected = event.target.value;
-                        const sorted = data.sort((a, b) =>  a["Weight(lbs)"] - b["Weight(lbs)"]);
-                        updateChart(filtered);
+                        const selected = event.target.value;
+                        const sorted = data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                        updateChart(sorted);
                     })
                 
             });
