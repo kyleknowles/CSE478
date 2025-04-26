@@ -57,6 +57,11 @@ const barWidth = 10;
                     
                     updateChart(sorted);
                 })
+                d3.select("#sortPosShort").on("change", (event) => {
+                    const selected = event.target.value;
+                    const filtered = data.filter(d => d["Pos_Short"] == selected)
+                    updateChart(filtered)
+                })
 
                 
             });
