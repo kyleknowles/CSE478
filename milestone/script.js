@@ -86,7 +86,7 @@ const barWidth = 10;
                         d3.select("#tooltip")
                         
                             .style("display", "block")
-                            .html(`${firstName} ${lastName}<br>${d["Current Team"]}<br> ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
+                            .html(`${firstName} ${lastName}<br>${d["Current Team"]} ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
                     })
                     .on("mouseout", function(event, d) {
                         d3.select(this)
