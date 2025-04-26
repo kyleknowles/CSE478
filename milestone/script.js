@@ -33,8 +33,10 @@ const barWidth = 10;
                     } else if (selected == "Large") {
                         sorted = data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     }
-                    sorted = data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                    
                     */
+                   
+                    sorted = data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     updateChart(sorted);
                 })
 
