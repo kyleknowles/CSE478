@@ -62,8 +62,7 @@ var posFilter = "All";
 
 
                     currSort = selected;
-                    
-                    sorted = data.
+                
                     
                     updateChart(sorted);
                 })
