@@ -86,7 +86,7 @@ const barWidth = 10;
                 const svg = d3.select("#svg1");
                 svg.selectAll("*").remove(); 
             
-                let data2 = data
+                //let data2 = data
                 
                 //data = data.filter(d => d["Current Status"] == Active);
                 
