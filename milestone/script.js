@@ -338,11 +338,11 @@ var currTeam2 = "All"
                     .range([0, 100]);        
                 */
             
-                // COnstant values for boxplot
+                // COnstant values for barplot
                 const weightConstant = 1.8
                 const minWeightBar = 8
             
-                // Creates boxplot
+                // Creates barplot
                 const bars = svg.selectAll("rect")
                     .data(data)
                     .enter()
