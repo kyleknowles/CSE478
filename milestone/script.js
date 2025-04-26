@@ -75,12 +75,12 @@ var currTeam = "All"
                 d3.select("#sortPosShort").on("change", (event) => {
                     const selected = event.target.value;
 
-                    var filtered = data
+                    var filtered = data;
 
                     if (selected != "All") {
-                        filtered = data.filter(d => d["Pos_Short"] == selected)
+                        filtered = data.filter(d => d["Pos_Short"] == selected);
                     } else {
-                        filtered = data.filter(d => d)
+                        filtered = data.filter(d => d);
                     }
 
                     posFilter = selected;
@@ -112,6 +112,7 @@ var currTeam = "All"
                     }
 
                     filtered = filtered.filter(d => d["Current Team"] == selected);
+
                     currTeam = selected;
 
                     updateChart(filtered)
