@@ -44,8 +44,11 @@ var currTeam = "All"
                 return data
             })
             .then (data => {
+                
                 data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
-                updateChart(data)
+                updateChart(data);
+
+                weightChart(data);
 
                 d3.select("#sortBy").on("change", (event) => {
                     const selected = event.target.value;
@@ -181,63 +184,58 @@ var currTeam = "All"
 
 
                 
-                /*
+            
 
 
-                function weightChart() {
-                    
-                    const svg2 = d3.select("#svg2");
-                    
-                    svg2.selectAll("*").remove(); 
+            function weightChart(data) {
+                data = data.filter(d => d["Weight (lbs)"] > 0);
+                data = data.filter(d => d["Current Status"] == "Active");
+                const svg = d3.select("#svg2");
+                svg.selectAll("*").remove(); 
+                
+            
+            
+                const maxWeight = Math.max(...data.map(d => d["Weight (lbs)"])); // Find the max value of Weight
+                const minWeight = Math.min(...data.map(d => d["Weight (lbs)"])); // Find the min value of Weight
+            
+                const yScale = d3.scaleLinear()
+                    .domain([minWeight + 1, maxWeight])
+                    .range([0, 100]);        
 
-                    data = data.filter(d => d["Weight (lbs)"] > 1);
-                   
-                    //data = data.filter(d => d["Current Status"] == Active);
-                    
-
-                    const maxWeight = Math.max(...data.map(d => d["Weight (lbs)"])); // Find the max value of Weight
-                    const minWeight = Math.min(...data.map(d => d["Weight (lbs)"])); // Find the min value of Weight
-                    
-                    
-
-                    const weightConstant = 1.5
-                    const minWeightBar = 3
-                    
-                    const bars2 = svg2.selectAll("rect")
-                    
+            
+                const weightConstant = 4
+                const minWeightBar = 3
+            
+                const bars = svg.selectAll("rect")
                     .data(data)
                     .enter()
                     .append("rect")
-                    .attr("x", (d, i) => i * (barWidth +  (barWidth/2)))
+                    .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
                     .attr("y", d => (400 - (d["Weight (lbs)"] - minWeight + minWeightBar) * weightConstant)) 
                     .attr("width", barWidth)
                     .attr("height", d => (d["Weight (lbs)"] - minWeight + minWeightBar) * weightConstant)
-                    .attr("fill", "steelblue")
-
-                    let nameList = d["Name"].split(",")
-                    let firstName = nameList[1].replace('"', "")
-                    let lastName = nameList[0].replace('"', "")
-                    
+                    .attr("fill", "purple")
                     .on("mouseover", function(event, d) {
+                        let nameList = d["Name"].split(",")
+                        let firstName = nameList[1].replace('"', "")
+                        let lastName = nameList[0].replace('"', "")
                         d3.select(this) 
-                            .style("fill", "red")
-
-                        d3.select("#tooltip")
+                            .style("fill", "violet")
+                        d3.select("#tooltip2")
+                        
                             .style("display", "block")
-                            .html(`${firstName} ${lastName}<br> ${d["Current Status"]} ${d["Current Team"]}<br> ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} lbs`);
+                            .html(`${firstName} ${lastName}<br>${d["Current Team"]} ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} pounds`);
                     })
-                }
-            
-                function lightHeavy() {
-                    data.sort((a, b) =>  a["Weight(lbs)"] - b["Weight(lbs)"]);
-                    weightChart();
-                }
-                
-                function HeavyLight() {
-                   
-                    data.sort((a, b) =>  b["Weight(lbs)"] - a["Weight(lbs)"]);
-                    
-                    weightChart();
-                }
-                    */
+                    .on("mouseout", function(event, d) {
+                        d3.select(this)
+                            .style("fill", "purple")
+                        d3.select("#tooltip2")
+                        
+                            .style("display", "none")
+                        
+                    })
+
+            }
+
+
         
