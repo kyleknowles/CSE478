@@ -45,15 +45,16 @@ var posFilter = "All";
             .then (data => {
                 data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
                 updateChart(data)
+
                 d3.select("#sortBy").on("change", (event) => {
                     const selected = event.target.value;
                     //alert(selected)
                     var sorted = data;
                     
                     filtered = data.filter(d => d["Pos_Short"] == posFilter);
-
+                    
                     if (selected == "Small") {
-                       filtered = filtered.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                        filtered = filtered.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
                     } else if (selected == "Large") {
                         filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     }
@@ -66,7 +67,9 @@ var posFilter = "All";
 
                 d3.select("#sortPosShort").on("change", (event) => {
                     const selected = event.target.value;
+
                     var filtered = data
+
                     if (selected != "All") {
                         filtered = data.filter(d => d["Pos_Short"] == selected)
                     }
@@ -78,6 +81,7 @@ var posFilter = "All";
                     } else if (currSort == "Large") {
                         filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     }
+
                     updateChart(filtered)
                 })
 
