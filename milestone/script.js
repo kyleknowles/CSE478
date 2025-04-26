@@ -298,7 +298,7 @@ var currTeam2 = "All"
                         let firstName = nameList[1].replace('"', "")
                         let lastName = nameList[0].replace('"', "")
                         var playerNumber = "";
-                        if (d["Number"] != "") {
+                        if (!isNaN(d["Number"])) {
                              playerNumber = "(#" + String(d["Number"]) + ")";
                         }
 
