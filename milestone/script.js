@@ -1,7 +1,7 @@
 
     
 let data = []
-let data2 = []
+var data2 = []
 const barWidth = 10;
 var currSort = "Small";
 var posFilter = "All";
@@ -52,8 +52,9 @@ var currTeam2 = "All"
                 data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
                 updateChart(data);
 
-                data.sort((a, b) =>  a["Weight (lbs)"] - b["Weight (lbs)"]);
-                weightChart(data);
+                data2 = data
+                data2.sort((a, b) =>  a["Weight (lbs)"] - b["Weight (lbs)"]);
+                weightChart(data2);
 
                 d3.select("#sortBy").on("change", (event) => {
                     const selected = event.target.value;
@@ -129,10 +130,10 @@ var currTeam2 = "All"
                 d3.select("#sortBy2").on("change", (event) => {
                     const selected = event.target.value;
                    
-                    var filtered = data;
+                    var filtered = data2;
                 
                     if (posFilter2 != "All") {
-                        filtered = data.filter(d => d["Pos_Short"] == posFilter);
+                        filtered = data2.filter(d => d["Pos_Short"] == posFilter2);
                     }
                    
 
@@ -145,7 +146,7 @@ var currTeam2 = "All"
                     currSort2 = selected;
                     
                     if (currTeam2 != "All") {
-                        filtered = filtered.filter(d => d["Current Team"] == currTeam);
+                        filtered = filtered.filter(d => d["Current Team"] == currTeam2);
                     }
                     
                     weightChart(filtered);
@@ -154,10 +155,10 @@ var currTeam2 = "All"
                 d3.select("#sortPosShort2").on("change", (event) => {
                     const selected = event.target.value;
 
-                    var filtered = data;
+                    var filtered = data2;
 
                     if (selected != "All") {
-                        filtered = data.filter(d => d["Pos_Short"] == selected);
+                        filtered = data2.filter(d => d["Pos_Short"] == selected);
                     }
 
                     posFilter2 = selected;
@@ -169,17 +170,17 @@ var currTeam2 = "All"
                     }
 
                     if (currTeam2 != "All") {
-                        filtered = filtered.filter(d => d["Current Team"] == currTeam);
+                        filtered = filtered.filter(d => d["Current Team"] == currTeam2);
                     }
 
                     updateChart(filtered);
                 })
                 d3.select("#team2").on("change", (event) => {
                     const selected = event.target.value;
-                    var filtered = data
+                    var filtered = data2
 
                     if (posFilter2 != "All") {
-                        filtered = data.filter(d => d["Pos_Short"] == posFilter);
+                        filtered = data2.filter(d => d["Pos_Short"] == posFilter2);
                     }
     
                     if (currSort2 == "Small") {
