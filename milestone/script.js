@@ -22,6 +22,7 @@ const barWidth = 10;
                 return data
             })
             .then (data => {
+                data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
                 updateChart(data)
                 d3.select("#sortBy").on("change", (event) => {
                     const selected = event.target.value;
@@ -64,7 +65,7 @@ const barWidth = 10;
                 
                 //alert(maxHeight)
             
-                const heightConstant = 8
+                const heightConstant = 12
                 const minHeightBar = 3
             
                 const bars = svg.selectAll("rect")
