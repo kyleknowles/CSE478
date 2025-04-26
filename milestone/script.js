@@ -5,6 +5,7 @@ let data2 = []
 const barWidth = 10;
 var currSort = "Small";
 var posFilter = "All";
+var currTeam = "All"
 
     //let data = []
     fetch("Basic_Stats.csv")
@@ -86,6 +87,29 @@ var posFilter = "All";
                     } else if (currSort == "Large") {
                         filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     }
+
+                    if (currTeam != "All") {
+                        filtered = filtered.filter(d => d["Current Team"] = currTeam);
+                    }
+
+                    updateChart(filtered);
+                })
+                d3.select("#team").on("change", (event) => {
+                    const selected = event.target.value;
+                    var filtered = data
+
+                    if (posFilter != "All") {
+                        filtered = data.filter(d => d["Pos_Short"] == posFilter);
+                    }
+    
+                    if (currSort == "Small") {
+                        filtered = filtered.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                    } else if (currSort == "Large") {
+                        filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                    }
+
+                    filtered = filtered.filter(d => d["Current Team"] == selected);
+                    currTeam = selected;
 
                     updateChart(filtered)
                 })
