@@ -66,7 +66,7 @@ var currTeam = "All"
                     currSort = selected;
                     
                     if (currTeam != "All") {
-                        filtered = filtered.filter(d => d["Current Team"] = currTeam);
+                        filtered = filtered.filter(d => d["Current Team"] == currTeam);
                     }
                     
                     updateChart(filtered);
