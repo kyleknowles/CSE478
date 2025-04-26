@@ -49,10 +49,13 @@ var posFilter = "All";
                 d3.select("#sortBy").on("change", (event) => {
                     const selected = event.target.value;
                    
-                    var sorted = data;
-                    
-                    filtered = data.filter(d => d["Pos_Short"] == posFilter);
+                    var filtered = data;
+                
+                    if (posFilter != "All") {
+                        filtered = data.filter(d => d["Pos_Short"] == posFilter);
+                    }
                    
+
                     if (selected == "Small") {
                         filtered = filtered.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
                     } else if (selected == "Large") {
