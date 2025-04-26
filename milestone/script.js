@@ -58,20 +58,19 @@ var posFilter = "All";
                         filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     }
 
-                    
-
-
                     currSort = selected;
                 
                     
                     updateChart(sorted);
                 })
+
                 d3.select("#sortPosShort").on("change", (event) => {
                     const selected = event.target.value;
                     var filtered = data
                     if (selected != "All") {
                         filtered = data.filter(d => d["Pos_Short"] == selected)
                     }
+
                     posFilter = selected;
 
                     if (currSort == "Small") {
