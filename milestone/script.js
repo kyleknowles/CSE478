@@ -297,6 +297,11 @@ var currTeam2 = "All"
                         let nameList = d["Name"].split(",")
                         let firstName = nameList[1].replace('"', "")
                         let lastName = nameList[0].replace('"', "")
+                        var playerNumber = "";
+                        if (d["Number"] != "") {
+                             playerNumber = "(#" + String(d["Number"]) + ")";
+                        }
+
                         d3.select(this) 
                             .style("fill", "lavender")
                         d3.select("#tooltip2")
