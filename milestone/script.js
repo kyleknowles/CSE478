@@ -7,6 +7,10 @@ var currSort = "Small";
 var posFilter = "All";
 var currTeam = "All"
 
+var currSort2 = "Small";
+var posFilter2 = "All";
+var currTeam2 = "All"
+
     //let data = []
     fetch("Basic_Stats.csv")
         .then(response => response.text())
@@ -119,6 +123,77 @@ var currTeam = "All"
                    
 
                     currTeam = selected;
+
+                    updateChart(filtered)
+                })
+                d3.select("#sortBy2").on("change", (event) => {
+                    const selected = event.target.value;
+                   
+                    var filtered = data;
+                
+                    if (posFilter2 != "All") {
+                        filtered = data.filter(d => d["Pos_Short"] == posFilter);
+                    }
+                   
+
+                    if (selected == "Small") {
+                        filtered = filtered.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                    } else if (selected == "Large") {
+                        filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                    }
+
+                    currSort2 = selected;
+                    
+                    if (currTeam2 != "All") {
+                        filtered = filtered.filter(d => d["Current Team"] == currTeam);
+                    }
+                    
+                    weightChart(filtered);
+                })
+
+                d3.select("#sortPosShort2").on("change", (event) => {
+                    const selected = event.target.value;
+
+                    var filtered = data;
+
+                    if (selected != "All") {
+                        filtered = data.filter(d => d["Pos_Short"] == selected);
+                    }
+
+                    posFilter2 = selected;
+
+                    if (currSort2 == "Small") {
+                        filtered = filtered.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                    } else if (currSort2 == "Large") {
+                        filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                    }
+
+                    if (currTeam2 != "All") {
+                        filtered = filtered.filter(d => d["Current Team"] == currTeam);
+                    }
+
+                    updateChart(filtered);
+                })
+                d3.select("#team2").on("change", (event) => {
+                    const selected = event.target.value;
+                    var filtered = data
+
+                    if (posFilter2 != "All") {
+                        filtered = data.filter(d => d["Pos_Short"] == posFilter);
+                    }
+    
+                    if (currSort2 == "Small") {
+                        filtered = filtered.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                    } else if (currSort2 == "Large") {
+                        filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                    }
+
+                    if (selected != "All") {
+                        filtered = filtered.filter(d => d["Current Team"] == selected);
+                    }
+                   
+
+                    currTeam2 = selected;
 
                     updateChart(filtered)
                 })
