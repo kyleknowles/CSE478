@@ -59,7 +59,8 @@ const barWidth = 10;
                 })
                 d3.select("#sortPosShort").on("change", (event) => {
                     const selected = event.target.value;
-                    const filtered = data.filter(d => d["Pos_Short"] == selected)
+                    var filtered = data.filter(d => d["Pos_Short"] == selected)
+                    filtered = data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     updateChart(filtered)
                 })
 
