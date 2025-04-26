@@ -3,6 +3,8 @@
 let data = []
 let data2 = []
 const barWidth = 10;
+var currSort = "Small";
+
 
     //let data = []
     fetch("Basic_Stats.csv")
@@ -25,7 +27,7 @@ const barWidth = 10;
                                 obj["Pos_Short"] = "Offensive Line";
                             } else if ((values[i] == "K") || (values[i] == "P") || (values[i] == "LS") ) {
                                 obj["Pos_Short"] = "Special Teams";
-                            } else if ((values[i] == "RB") || (values[i] == "P") || (values[i] == "LS") ) {
+                            } else if ((values[i] == "RB") || (values[i] == "P")) {
                                 obj["Pos_Short"] = "Running Back / Full Back"; 
                             } else if ((values[i] == "WR") || (values[i] == "TE")) {
                                 obj["Pos_Short"] = "Receiver"; 
@@ -53,13 +55,23 @@ const barWidth = 10;
                     } else if (selected == "Large") {
                         sorted = data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     }
+                    currSort = selected;
                     
                     
                     updateChart(sorted);
                 })
                 d3.select("#sortPosShort").on("change", (event) => {
                     const selected = event.target.value;
-                    const filtered = data.filter(d => d["Pos_Short"] == selected)
+                    var filtered = data
+                    if (selected != "All") {
+                        filtered = data.filter(d => d["Pos_Short"] == selected)
+                    }
+
+                    if (currSort == "Small") {
+                        filtered = data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                    } else if (currSort== "Large") {
+                        filtered = data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                    }
                     updateChart(filtered)
                 })
 
