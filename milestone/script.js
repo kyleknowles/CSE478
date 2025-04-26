@@ -27,16 +27,14 @@ const barWidth = 10;
                     const selected = event.target.value;
                     //alert(selected)
                     var sorted = data;
-                    /*
+                    
                     if (selected == "Small") {
                         sorted = data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
                     } else if (selected == "Large") {
                         sorted = data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     }
                     
-                    */
-
-                    sorted = data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                    
                     updateChart(sorted);
                 })
 
