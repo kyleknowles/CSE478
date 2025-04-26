@@ -109,7 +109,10 @@ var currTeam = "All"
                         filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     }
 
-                    filtered = filtered.filter(d => d["Current Team"] == selected);
+                    if (selected != "All") {
+                        filtered = filtered.filter(d => d["Current Team"] == selected);
+                    }
+                   
 
                     currTeam = selected;
 
