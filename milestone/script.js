@@ -52,7 +52,8 @@ var currTeam2 = "All"
                 data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
                 updateChart(data);
 
-                data2 = data
+                data2 = structuredClone(data);
+                
                 data2.sort((a, b) =>  a["Weight (lbs)"] - b["Weight (lbs)"]);
                 weightChart(data2);
 
