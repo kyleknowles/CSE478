@@ -48,6 +48,7 @@ var currTeam = "All"
                 data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
                 updateChart(data);
 
+                data.sort((a, b) =>  a["Weight (lbs)"] - b["Weight (lbs)"]);
                 weightChart(data);
 
                 d3.select("#sortBy").on("change", (event) => {
@@ -220,7 +221,7 @@ var currTeam = "All"
                         let firstName = nameList[1].replace('"', "")
                         let lastName = nameList[0].replace('"', "")
                         d3.select(this) 
-                            .style("fill", "violet")
+                            .style("fill", "lavander")
                         d3.select("#tooltip2")
                         
                             .style("display", "block")
