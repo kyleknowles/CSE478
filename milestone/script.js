@@ -298,7 +298,7 @@ var currTeam2 = "All"
                         let firstName = nameList[1].replace('"', "")
                         let lastName = nameList[0].replace('"', "")
                         var playerNumber = "";
-                        if (String(d["Number"]) != " ") {
+                        if (String(d["Number"]) != "") {
                              playerNumber = "(#" + String(d["Number"]) + ")";
                         }
 
@@ -307,7 +307,7 @@ var currTeam2 = "All"
                         d3.select("#tooltip2")
                         
                             .style("display", "block")
-                            .html(`${firstName} ${lastName} (# ${d["Number"]})<br>${d["Current Team"]} ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} pounds`);
+                            .html(`${firstName} ${lastName} ${playerNumber})<br>${d["Current Team"]} ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} pounds`);
                     })
                     .on("mouseout", function(event, d) {
                         d3.select(this)
