@@ -26,7 +26,7 @@ const barWidth = 10;
                             } else if ((values[i] == "K") || (values[i] == "P") || (values[i] == "LS") ) {
                                 obj["Pos_Short"] = "Special Teams";
                             } else if ((values[i] == "RB") || (values[i] == "P") || (values[i] == "LS") ) {
-                                obj["Pos_Short"] = "Running Back/ Full Back"; 
+                                obj["Pos_Short"] = "Running Back / Full Back"; 
                             } else if ((values[i] == "WR") || (values[i] == "TE")) {
                                 obj["Pos_Short"] = "Receiver"; 
                             } else if (values[i] == "QB") {
@@ -59,8 +59,7 @@ const barWidth = 10;
                 })
                 d3.select("#sortPosShort").on("change", (event) => {
                     const selected = event.target.value;
-                    var filtered = data.filter(d => d["Pos_Short"] == selected)
-                    filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                    const filtered = data.filter(d => d["Pos_Short"] == selected)
                     updateChart(filtered)
                 })
 
