@@ -247,7 +247,7 @@ var currTeam2 = "All"
                         d3.select("#tooltip")
                         
                             .style("display", "block")
-                            .html(`${firstName} ${lastName}<br>${d["Current Team"]} ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
+                            .html(`${firstName} ${lastName} (# ${d[Number]})<br>${d["Current Team"]} ${d["Position"]}<br>Height: ${d["Height (inches)"]} inches`);
                     })
                     .on("mouseout", function(event, d) {
                         d3.select(this)
@@ -302,7 +302,7 @@ var currTeam2 = "All"
                         d3.select("#tooltip2")
                         
                             .style("display", "block")
-                            .html(`${firstName} ${lastName}<br>${d["Current Team"]} ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} pounds`);
+                            .html(`${firstName} ${lastName} (# ${d[Number]})<br>${d["Current Team"]} ${d["Position"]}<br>Weight: ${d["Weight (lbs)"]} pounds`);
                     })
                     .on("mouseout", function(event, d) {
                         d3.select(this)
