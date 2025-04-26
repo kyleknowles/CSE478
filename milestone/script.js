@@ -227,7 +227,7 @@ var currTeam2 = "All"
                 //alert(maxHeight)
             
                 const heightConstant = 18
-                const minHeightBar = 3
+                const minHeightBar = 6
             
                 const bars = svg.selectAll("rect")
                     .data(data)
