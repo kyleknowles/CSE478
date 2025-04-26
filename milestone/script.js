@@ -65,7 +65,7 @@ const barWidth = 10;
                 
                 //alert(maxHeight)
             
-                const heightConstant = 12
+                const heightConstant = 18
                 const minHeightBar = 3
             
                 const bars = svg.selectAll("rect")
