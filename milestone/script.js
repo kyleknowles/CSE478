@@ -22,12 +22,23 @@ const barWidth = 10;
                 return data
             })
             .then (data => {
-    
+                updateChart(data)
 
+                d3.select("#sortBy").on("change", (event) => {
+                    const selected = event.target.value;
+                    const sorted = data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                    updateChart(sorted);
+                })
+
+                
+            });
+
+
+            function updateChart(data) {
                 data = data.filter(d => d["Height (inches)"] > 0);
                 data = data.filter(d => d["Current Status"] == "Active");
                 const svg = d3.select("#svg1");
-                //svg.selectAll("*").remove(); 
+                svg.selectAll("*").remove(); 
             
                 //let data2 = data
                 
@@ -73,13 +84,9 @@ const barWidth = 10;
                             .style("fill", "steelblue")
                     })
 
-                    d3.select("#sortBy").on("change", (event) => {
-                        const selected = event.target.value;
-                        const sorted = data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
-                        updateChart(sorted);
-                    })
-                
-            });
+            }
+
+
                 
                 /*
 
