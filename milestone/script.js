@@ -75,6 +75,8 @@ var posFilter = "All";
 
                     if (selected != "All") {
                         filtered = data.filter(d => d["Pos_Short"] == selected)
+                    } else {
+                        filtered = data.filter(d => d)
                     }
 
                     posFilter = selected;
