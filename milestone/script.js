@@ -16,6 +16,25 @@ const barWidth = 10;
                     return headers.reduce((obj, key, i) => {
                         
                         obj[key] = values[i]
+                        if (key == "Position") {
+                            if ((values[i] == "FS") || (values[i] == "SAF") || (values[i] == "SS") || (values[i] == "DB") || (values[i] == "CB")) {
+                                obj["Pos_Short"] = "Defensive Back";
+                            } else if ((values[i] == "LB") || (values[i] == "OLB") || (values[i] == "ILB") || (values[i] == "MLB") || (values[i] == "DE") ) {
+                                obj["Pos_Short"] = "Defensive Line";
+                            } else if ((values[i] == "OL") || (values[i] == "OT") || (values[i] == "T") || (values[i] == "NT") || (values[i] == "OG") || (values[i] == "G") || (values[i] == "C")) {
+                                obj["Pos_Short"] = "Offensive Line";
+                            } else if ((values[i] == "K") || (values[i] == "P") || (values[i] == "LS") ) {
+                                obj["Pos_Short"] = "Special Teams";
+                            } else if ((values[i] == "RB") || (values[i] == "P") || (values[i] == "LS") ) {
+                                obj["Pos_Short"] = "Running Back/ Full Back"; 
+                            } else if ((values[i] == "WR") || (values[i] == "TE")) {
+                                obj["Pos_Short"] = "Receiver"; 
+                            } else if (values[i] == "QB") {
+                                obj["Pos_Short"] = "Quarterback"; 
+                            }
+                        }
+
+
                         return obj; }, {});
                         //data.append(dict);
                 });
