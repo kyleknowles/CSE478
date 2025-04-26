@@ -174,7 +174,7 @@ var currTeam2 = "All"
                         filtered = filtered.filter(d => d["Current Team"] == currTeam2);
                     }
 
-                    updateChart(filtered);
+                    weightChart(filtered);
                 })
                 d3.select("#team2").on("change", (event) => {
                     const selected = event.target.value;
@@ -197,7 +197,7 @@ var currTeam2 = "All"
 
                     currTeam2 = selected;
 
-                    updateChart(filtered)
+                    weightChart(filtered)
                 })
 
                 
