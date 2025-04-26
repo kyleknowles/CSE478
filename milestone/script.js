@@ -68,9 +68,9 @@ var currSort = "Small";
                     }
 
                     if (currSort == "Small") {
-                        filtered = data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                        filtered = filtered.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
                     } else if (currSort== "Large") {
-                        filtered = data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                        filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     }
                     updateChart(filtered)
                 })
