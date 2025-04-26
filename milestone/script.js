@@ -4,7 +4,7 @@ let data = []
 let data2 = []
 const barWidth = 10;
 var currSort = "Small";
-
+var posFilter = "All";
 
     //let data = []
     fetch("Basic_Stats.csv")
@@ -50,13 +50,20 @@ var currSort = "Small";
                     //alert(selected)
                     var sorted = data;
                     
+                    filtered = data.filter(d => d["Pos_Short"] == posFilter);
+
                     if (selected == "Small") {
-                        sorted = data.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                       filtered = filtered.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
                     } else if (selected == "Large") {
-                        sorted = data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                        filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     }
+
+                    
+
+
                     currSort = selected;
                     
+                    sorted = data.
                     
                     updateChart(sorted);
                 })
@@ -66,10 +73,11 @@ var currSort = "Small";
                     if (selected != "All") {
                         filtered = data.filter(d => d["Pos_Short"] == selected)
                     }
+                    posFilter = selected;
 
                     if (currSort == "Small") {
                         filtered = filtered.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
-                    } else if (currSort== "Large") {
+                    } else if (currSort == "Large") {
                         filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     }
                     updateChart(filtered)
