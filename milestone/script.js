@@ -221,7 +221,7 @@ var currTeam = "All"
                         let firstName = nameList[1].replace('"', "")
                         let lastName = nameList[0].replace('"', "")
                         d3.select(this) 
-                            .style("fill", "lavander")
+                            .style("fill", "lavender")
                         d3.select("#tooltip2")
                         
                             .style("display", "block")
