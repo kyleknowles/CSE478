@@ -137,9 +137,9 @@ var currTeam2 = "All"
                    
 
                     if (selected == "Small") {
-                        filtered = filtered.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                        filtered = filtered.sort((a, b) =>  a["Weight (lbs)"] - b["Weight (lbs)"]);
                     } else if (selected == "Large") {
-                        filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                        filtered = filtered.sort((a, b) =>  b["Weight (lbs)"] - a["Weight (lbs)"]);
                     }
 
                     currSort2 = selected;
@@ -163,9 +163,9 @@ var currTeam2 = "All"
                     posFilter2 = selected;
 
                     if (currSort2 == "Small") {
-                        filtered = filtered.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                        filtered = filtered.sort((a, b) =>  a["Weight (lbs)"] - b["Weight (lbs)"]);
                     } else if (currSort2 == "Large") {
-                        filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                        filtered = filtered.sort((a, b) =>  b["Weight (lbs)"] - a["Weight (lbs)"]);
                     }
 
                     if (currTeam2 != "All") {
@@ -183,9 +183,9 @@ var currTeam2 = "All"
                     }
     
                     if (currSort2 == "Small") {
-                        filtered = filtered.sort((a, b) =>  a["Height (inches)"] - b["Height (inches)"]);
+                        filtered = filtered.sort((a, b) =>  a["Weight (lbs)"] - b["Weight (lbs)"]);
                     } else if (currSort2 == "Large") {
-                        filtered = filtered.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
+                        filtered = filtered.sort((a, b) =>  b["Weight (lbs)"] - a["Weight (lbs)"]);
                     }
 
                     if (selected != "All") {
@@ -279,7 +279,7 @@ var currTeam2 = "All"
                     .range([0, 100]);        
 
             
-                const weightConstant = 4
+                const weightConstant = 1.5
                 const minWeightBar = 3
             
                 const bars = svg.selectAll("rect")
