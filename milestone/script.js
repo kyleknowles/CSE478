@@ -23,7 +23,6 @@ const barWidth = 10;
             })
             .then (data => {
                 updateChart(data)
-
                 d3.select("#sortBy").on("change", (event) => {
                     const selected = event.target.value;
                     //alert(selected)
@@ -33,6 +32,7 @@ const barWidth = 10;
                     } else if (selected == "Large") {
                         sorted = data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     }
+                    sorted = data.sort((a, b) =>  b["Height (inches)"] - a["Height (inches)"]);
                     
                     updateChart(sorted);
                 })
