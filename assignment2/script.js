@@ -47,12 +47,14 @@ fetch("data.csv")
             .data(data)
             .enter()
             .append("rect")
-
+            alert("1")
             .attr("x", d => xScale(d.category))
             //.attr("y", d => yScale(d.value))
+            alert("2")
             .attr("width", xScale.bandwidth())
+            alert("3")
             .attr("height", d => yScale(d.value))
-
+            alert("4")
 
             //.attr("x", (d, i) => i * (barWidth + (barWidth/2)))
             //.attr("y", d => 450 - d.value)
@@ -60,6 +62,7 @@ fetch("data.csv")
             //.attr("height", d.value)
 
             .attr("fill", d => color(d.category));
+            alert("5")
     });
 
             //.text(d => d.name)
