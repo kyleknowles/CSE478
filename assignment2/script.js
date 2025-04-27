@@ -26,7 +26,7 @@ fetch("data.csv")
             .attr("transform", 'translate(${margin.left}, ${margin.top})' 
             );
 
-            )
+
 
         const bars = svg.selectAll("rect")
             .data(data)
