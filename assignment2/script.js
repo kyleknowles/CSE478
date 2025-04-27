@@ -30,6 +30,7 @@ fetch("data.csv")
 
         const maxValue = Math.max(...data.map(d => d.value)); 
 
+        /*
         const xScale = d3.scaleBand()
             .domain(["Fruit", "Vegetables"])
             
@@ -39,7 +40,7 @@ fetch("data.csv")
         const yScale = d3.scaleLinear()
             .domain([0,maxValue])
             .range([450, 0]);
-
+        */
 
         
 
@@ -51,7 +52,7 @@ fetch("data.csv")
             .append("rect")
            
             .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
-            .attr("y", d => d.value)
+            .attr("y", d => 450 - d.value)
             .attr("width", barWidth)     
             .attr("height", d.value)
 
