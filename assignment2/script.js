@@ -58,7 +58,7 @@ fetch("data.csv")
             .append("text")
 
             .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2 - 4)
-            .attr("y", d => 450 - yScale(d.value) + 6 * d.name.length)
+            .attr("y", d => 450 - yScale(d.value)) // + 6 * d.name.length
             //.attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2 - 4}, ${450 - yScale(d.value) +  6 * d.name.length})`)
             .attr("text-anchor", "middle")
             
@@ -66,12 +66,12 @@ fetch("data.csv")
             .text(d => d.value);
 
         const legend = svg.selectAll("circle")
-            .data(data)
+            .data(["Fruit, Vegetable"])
             .enter()
             .append("circle")
-            .attr("cx", 300)
-            .attr("cy", (d, i) => 100 + 20 * i)
-            .attr("r", 15)
+            .attr("cx", 400)
+            .attr("cy", (d, i) => 100 + 30 * i)
+            .attr("r", 12)
             .attr("fill", d => color(d.category));
     }); 
         
