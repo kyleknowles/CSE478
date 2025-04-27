@@ -22,12 +22,10 @@ fetch("data.csv")
             .domain(["Fruit", "Vegetable"])
             .range(["steelblue", "red"])
 
-        /*
+        
         const chart = svg.append("g")
-            .attr("transform", `translate(${margin.left}, ${margin.top})`
-        );
-        */
-
+            .attr("transform", `translate(${margin.left}, ${margin.top})`);
+        
         const maxValue = Math.max(...data.map(d => d.value)); 
 
         const xScale = d3.scaleBand()
@@ -59,9 +57,9 @@ fetch("data.csv")
             //.attr("height", d => d.value)
 
             //
-            //.attr("y", d => yScale(d.value))
+            .attr("y", d => 450 - yScale(d.value))
             //.attr("width", xScale.bandwidth())
-            .attr("height", d => yScale(d.value))
+            .attr("height", d => Scale(d.value))
 
     
 
