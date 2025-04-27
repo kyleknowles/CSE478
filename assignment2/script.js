@@ -75,13 +75,13 @@ fetch("data.csv")
             .attr("r", 12)
             .attr("fill", (_, i) => color(cats[i]));
 
-        const legendText = svg.selectAll("text")
+        const legendText = svg.selectAll(".legend-text")
             .data(cats)
             .enter()
             .append("text")
             .attr("x", 620)
             .attr("y", (_, i) => 60 + 30 * i)
-            .text("Hello");
+            .text((d, i) => cats[i]);
         
     }); 
         
