@@ -22,12 +22,14 @@ fetch("data.csv")
             .domain(["Fruit", "Vegetable"])
             .range(["steelblue", "red"])
 
+        /*
         const chart = svg.append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`
         );
+        */
 
         
-        
+
 
         const bars = svg.selectAll("rect")
             .data(data)
