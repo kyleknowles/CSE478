@@ -39,7 +39,7 @@ fetch("data.csv")
 
         const yScale = d3.scaleLinear()
             .domain([0, 20])
-            .range([0, 450]);
+            .range([450, 0]);
         
 
         
@@ -51,11 +51,11 @@ fetch("data.csv")
             .enter()
             .append("rect")
 
-            .attr("x", (d, i) => i * (xScale.bandwidth()))
+            //.attr("x", (d, i) => i * (xScale.bandwidth()))
             //.attr("y", d => yScale(d.value))
-            //.attr("x", (d, i) => i * (barWidth + (barWidth/2)))
+            .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
             //.attr("y", d => 450 - d.value)
-            .attr("width", xScale.bandwidth())
+            //.attr("width", xScale.bandwidth())
             //.attr("width", barWidth)     
             //.attr("height", d => d.value)
 
