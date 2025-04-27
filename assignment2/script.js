@@ -1,0 +1,47 @@
+fetch("data.csv")
+.then(response => response.text())
+.then(csv => {
+        let rows = csv.split("\n");
+        let headers = rows[0].split(",");
+        data = rows.slice(1).map(row => {
+        let values = row.split(",");
+            return headers.reduce((obj, key, i) => {
+                // Creates objects of instance, key pairs
+                obj[key] = values[i]
+
+                
+
+
+                return obj; }, {});
+        });
+        return data
+    })
+    // Creates svg graphs
+
+    var barWidth = 10
+    .then (data => {
+        const svg = d3.select("svg");
+        const bars = svg.selectAll("rect")
+            .data(data)
+            .enter()
+            .append("rect")
+
+            .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
+                    .attr("y", d => (400 - (d.value)))
+                    .attr("width", barWidth)
+                    .attr("height", d => d.value)
+                    .attr("fill", "steelblue")
+
+
+                        /*
+                        
+                2. Create a margin convention and append a g group to the SVG canvas.
+                3. Build a band scale for the x-axis and a linear scale for the y-axis.
+                4. Render a bar for each item using the enter-update pattern.
+                5. Use a color scale (e.g., d3.scaleOrdinal) to fill bars based on category.
+                6. Add value labels above or inside each bar.
+                7. Create a legend that maps colors to categories.
+                8. Rotate x-axis labels for readability if they overlap.
+
+                        */
+    });
