@@ -24,8 +24,9 @@ fetch("data.csv")
 
         
         
+        const margin = {top: 50, right: 50, bottom: 20, left: 40}
         const chart = svg.append("g")
-            .attr("transform", `translate(150, 150)`);
+            .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 
         const maxValue = Math.max(...data.map(d => d.value)); 
@@ -56,7 +57,7 @@ fetch("data.csv")
             .enter()
             .append("text")
             .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)
-            .attr("y", d => yScale(d.value))
+            .attr("y", d => 450 - yScale(d.value))
             .attr("text-anchor", "middle")
             .text(d => d.name);
     }); 
