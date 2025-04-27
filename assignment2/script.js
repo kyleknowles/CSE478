@@ -32,8 +32,7 @@ fetch("data.csv")
 
         const xScale = d3.scaleBand()
             .domain([...new Set(data.map(d => d.name))])
-            
-            .range([0,800])
+            .range([0, 800])
             .padding(0.1);
 
         const yScale = d3.scaleLinear()
@@ -41,37 +40,33 @@ fetch("data.csv")
             .range([0, 450]);
         
 
-        
-
 
         const bars = svg.selectAll("rect")
-
             .data(data)
             .enter()
             .append("rect")
-
-
             .attr("x", d => xScale(d.name))
             .attr("y", d => 450 - yScale(d.value))
-            
             .attr("width", xScale.bandwidth())
-
             .attr("height", d => yScale(d.value))
-
-    
-
             .attr("fill", d => color(d.category));
-    });
 
+        const labels = svg.selectAll("text")
+            .data(data)
+            .enter()
+            .append("text")
+            .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)
+            .attr("y", d => yScale(d.value) - 5)
+            .attr("text-anchor", "middle")
+            .text(d => d.name);
+    }); 
             //.text(d => d.name)
 
 
                         /*
                         
                 2. Create a margin convention and append a g group to the SVG canvas.
-                3. Build a band scale for the x-axis and a linear scale for the y-axis.
-                4. Render a bar for each item using the enter-update pattern.
-                5. Use a color scale (e.g., d3.scaleOrdinal) to fill bars based on category.
+   
                 6. Add value labels above or inside each bar.
                 7. Create a legend that maps colors to categories.
                 8. Rotate x-axis labels for readability if they overlap.
