@@ -24,9 +24,9 @@ fetch("data.csv")
 
         
         
-        const margin = {top: 50, right: 50, bottom: 20, left: 40}
+        const margin = {top: 50, right: 100, bottom: 20, left: 40}
         const chart = svg.append("g")
-            .attr("transform", `translate(${margin.left}, ${margin.top})`);
+            .attr("transform", `translate(${margin.right}, ${margin.top})`);
 
 
         const maxValue = Math.max(...data.map(d => d.value)); 
@@ -57,22 +57,23 @@ fetch("data.csv")
             .enter()
             .append("text")
 
-            .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2 - 4)
-            .attr("y", d => 450 - yScale(d.value)) // + 6 * d.name.length
+            .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)
+            .attr("y", d => 450 - yScale(d.value) + 3) // + 6 * d.name.length
             //.attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2 - 4}, ${450 - yScale(d.value) +  6 * d.name.length})`)
             .attr("text-anchor", "middle")
             
             //.text(d => d.name);
             .text(d => d.value);
 
+        const cats = ["Fruit", "Vegetable"]
         const legend = svg.selectAll("circle")
-            .data(["Fruit, Vegetable"])
+            .data(cats)
             .enter()
             .append("circle")
             .attr("cx", 400)
             .attr("cy", i => 100 + 30 * i)
             .attr("r", 12)
-            .attr("fill", d => color(d.category));
+            .attr("fill", "blue");
     }); 
         
 
