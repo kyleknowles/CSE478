@@ -49,7 +49,7 @@ fetch("data.csv")
             .append("rect")
 
             .attr("x", d => xScale(d.category))
-            .attr("y", d => yScale(d))
+            .attr("y", d => yScale(d.value))
             .attr("width", xScale.bandwidth())
             .attr("height", d => 450 - yScale(d.value))
 
