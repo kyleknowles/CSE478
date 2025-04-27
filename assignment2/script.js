@@ -27,7 +27,7 @@ fetch("data.csv")
         );
 
         
-
+        
 
         const bars = svg.selectAll("rect")
             .data(data)
@@ -41,6 +41,7 @@ fetch("data.csv")
             .attr("y", d => 450 - d.value)
             .attr("width", barWidth)               
             .attr("height", d => d.value)
+
             .attr("fill", d => color(d.category))
             //.text(d => d.name)
 
