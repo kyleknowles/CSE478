@@ -52,7 +52,6 @@ fetch("data.csv")
            
             .attr("x", d => xScale(d.category))
             //.attr("y", d => yScale(d.value))
-            alert("2")
             .attr("width", xScale.bandwidth())
             alert("3")
             .attr("height", d => yScale(d.value))
