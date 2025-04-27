@@ -80,7 +80,7 @@ fetch("data.csv")
             .enter()
             .append("text")
             .attr("x", 620)
-            .attr("y", (_, i) => 60 + 30 * i)
+            .attr("y", (_, i) => 64 + 30 * i)
             .text((d, i) => cats[i]);
         
     }); 
