@@ -8,10 +8,6 @@ fetch("data.csv")
             return headers.reduce((obj, key, i) => {
                 // Creates objects of instance, key pairs
                 obj[key] = values[i]
-
-                
-
-
                 return obj; }, {});
         });
         return data
@@ -27,7 +23,7 @@ fetch("data.csv")
             .append("rect")
 
             .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
-                    .attr("y", d => (400 - (d.value)))
+                    .attr("y", d => 450 - d.value)
                     .attr("width", barWidth)
                     .attr("height", d => d.value)
                     .attr("fill", "steelblue")
