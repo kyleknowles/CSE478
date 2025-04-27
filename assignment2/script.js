@@ -59,7 +59,7 @@ fetch("data.csv")
             .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)
             .attr("y", d => 450 - yScale(d.value))
             .attr("text-anchor", "middle")
-            .attr("transform", "rotate(45)")
+            .attr("transform", "rotate(90)")
             .text(d => d.name);
 
     }); 
