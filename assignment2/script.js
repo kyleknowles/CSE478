@@ -20,7 +20,7 @@ fetch("data.csv")
 
         const color = d3.scaleOrdinal()
             .domain(["Fruit", "Vegetable"])
-            .range(["steelblue", "red"])
+            .range(["steelblue", "red"]);
 
         
         
