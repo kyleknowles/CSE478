@@ -24,7 +24,7 @@ fetch("data.csv")
 
         
         
-        const margin = {top: 50, right: 50, bottom: 20, left: 40}
+        const margin = {top: 50, right: 50, bottom: 20, left: 80}
         const chart = svg.append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
@@ -67,8 +67,7 @@ fetch("data.csv")
                         /*
                         
                 2. Create a margin convention and append a g group to the SVG canvas.
-   
-                6. Add value labels above or inside each bar.
+
                 7. Create a legend that maps colors to categories.
                 8. Rotate x-axis labels for readability if they overlap.
 
