@@ -15,7 +15,7 @@ fetch("data.csv")
     // Creates svg graphs
 
     .then (data => {
-        const barWidth = 10
+        const barWidth = 30
         const svg = d3.select("svg");
         const bars = svg.selectAll("rect")
             .data(data)
@@ -27,6 +27,7 @@ fetch("data.csv")
             .attr("width", barWidth)               
             .attr("height", d => d.value)
             .attr("fill", "steelblue")
+            .text(d => d.name)
 
 
                         /*
