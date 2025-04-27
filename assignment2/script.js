@@ -58,7 +58,7 @@ fetch("data.csv")
             .append("text")
 
             .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)
-            .attr("y", d => 450 - yScale(d.value + 50))
+            .attr("y", d => 450 - yScale(d.value) + 50)
             .attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2}, ${450 - yScale(d.value) + 50})`)
             .attr("text-anchor", "middle")
             
