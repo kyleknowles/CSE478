@@ -25,7 +25,7 @@ fetch("data.csv")
         
         
         const chart = svg.append("g")
-            .attr("transform", "translate(50, 50)");
+            .attr("transform", `translate(150, 150)`);
 
 
         const maxValue = Math.max(...data.map(d => d.value)); 
