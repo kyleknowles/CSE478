@@ -24,7 +24,7 @@ fetch("data.csv")
 
         
         
-        const margin = {top: 50, right: 50, bottom: 20, left: 80}
+        const margin = {top: 50, right: 50, bottom: 20, left: 40}
         const chart = svg.append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
@@ -37,7 +37,7 @@ fetch("data.csv")
             .padding(0.1);
 
         const yScale = d3.scaleLinear()
-            .domain([0, 20])
+            .domain([0, 22])
             .range([0, 450]);
         
 
@@ -59,14 +59,15 @@ fetch("data.csv")
             .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)
             .attr("y", d => 450 - yScale(d.value))
             .attr("text-anchor", "middle")
+            .attr("transform", "rotate(45)")
             .text(d => d.name);
+
     }); 
             //.text(d => d.name)
 
 
                         /*
                         
-                2. Create a margin convention and append a g group to the SVG canvas.
 
                 7. Create a legend that maps colors to categories.
                 8. Rotate x-axis labels for readability if they overlap.
