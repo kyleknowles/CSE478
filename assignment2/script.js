@@ -29,6 +29,7 @@ fetch("data.csv")
         */
 
         const maxValue = Math.max(...data.map(d => d.value)); 
+
         const xScale = d3.scaleBand()
             .domain(["Fruit", "Vegetable"])
             .range([0,800])
@@ -50,7 +51,7 @@ fetch("data.csv")
             .attr("x", d => xScale(d.category))
             //.attr("y", d => yScale(d))
             .attr("width", xScale.bandwidth())
-            .attr("height", d => yScale(d.value))
+            .attr("height", d => 450 - yScale(d.value))
 
 
             //.attr("x", (d, i) => i * (barWidth + (barWidth/2)))
@@ -58,9 +59,9 @@ fetch("data.csv")
             //.attr("width", barWidth)     
             //.attr("height", d.value)
 
-
-
             .attr("fill", d => color(d.category))
+    });
+
             //.text(d => d.name)
 
 
@@ -75,4 +76,4 @@ fetch("data.csv")
                 8. Rotate x-axis labels for readability if they overlap.
 
                         */
-    });
+   // });
