@@ -60,8 +60,8 @@ fetch("data.csv")
 
             //
             //.attr("y", d => yScale(d.value))
-            .attr("width", xScale.bandwidth())
-            //.attr("height", d => yScale(d.value))
+            //.attr("width", xScale.bandwidth())
+            .attr("height", d => yScale(d.value))
 
     
 
