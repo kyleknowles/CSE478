@@ -70,8 +70,8 @@ fetch("data.csv")
             .data(cats)
             .enter()
             .append("circle")
-            .attr("cx", 400)
-            .attr("cy", (_, i) => 100 + 30 * i)
+            .attr("cx", 900)
+            .attr("cy", (_, i) => 60 + 30 * i)
             .attr("r", 12)
             .attr("fill", "blue");
     }); 
