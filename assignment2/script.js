@@ -54,7 +54,7 @@ fetch("data.csv")
             .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
             .attr("y", 100)
             .attr("width", barWidth)     
-            .attr("height", d.value)
+            .attr("height", d => d.value)
 
             //.attr("x", d => xScale(d.category))
             //.attr("y", d => yScale(d.value))
