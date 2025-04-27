@@ -58,7 +58,7 @@ fetch("data.csv")
             .append("text")
 
             .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)
-            .attr("y", d => 450 - yScale(d.value) + 3) // + 6 * d.name.length
+            .attr("y", d => 450 - yScale(d.value) - 3) // + 6 * d.name.length
             //.attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2 - 4}, ${450 - yScale(d.value) +  6 * d.name.length})`)
             .attr("text-anchor", "middle")
             
@@ -81,7 +81,7 @@ fetch("data.csv")
             .append("text")
             .attr("x", 620)
             .attr("y", (_, i) => 60 + 30 * i)
-            .text((_, i) => cats[i]);
+            .text((_, i) => cats[1]);
         
     }); 
         
