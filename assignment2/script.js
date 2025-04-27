@@ -24,7 +24,7 @@ fetch("data.csv")
 
         
         
-        const margin = {top: 50, right: 100, bottom: 20, left: 40}
+        const margin = {top: 50, right: 200, bottom: 20, left: 40}
         const chart = svg.append("g")
             .attr("transform", `translate(${margin.right}, ${margin.top})`);
 
