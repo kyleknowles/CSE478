@@ -30,7 +30,7 @@ fetch("data.csv")
 
         const maxValue = Math.max(...data.map(d => d.value)); 
 
-        
+        alert(maxValue)
         const xScale = d3.scaleBand()
             .domain(["Fruit", "Vegetables"])
             
