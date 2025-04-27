@@ -17,17 +17,28 @@ fetch("data.csv")
     .then (data => {
         const barWidth = 30
         const svg = d3.select("svg");
+
+        const color = d3.scaleOrdinal()
+            .domain(["Fruit", "Vegetable"])
+            .range(["steelblue", "red"])
+
+        const chart = svg.append("g")
+            .attr("transform", 'translate(${margin.left}, ${margin.top})' 
+            );
+
+            )
+
         const bars = svg.selectAll("rect")
             .data(data)
             .enter()
             .append("rect")
 
-            .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
-            .attr("y", d => 450 - d.value)
-            .attr("width", barWidth)               
+            .attr("x", (_, i) => xScale(i))
+            .attr("y", d => yScale(d))
+            .attr("width", xScale.bandwidth())
             .attr("height", d => d.value)
-            .attr("fill", "steelblue")
-            .text(d => d.name)
+            .attr("fill", d => color(d.category))
+            //.text(d => d.name)
 
 
                         /*
