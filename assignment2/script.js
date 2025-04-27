@@ -56,8 +56,8 @@ fetch("data.csv")
             .enter()
             .append("text")
             .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)
-            .attr("y", d => yScale(d.value) - 5)
-            //.attr("text-anchor", "middle")
+            .attr("y", d => yScale(d.value) - 50)
+            .attr("text-anchor", "middle")
             .text(d => d.name);
     }); 
             //.text(d => d.name)
