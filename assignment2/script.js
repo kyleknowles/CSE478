@@ -31,7 +31,7 @@ fetch("data.csv")
         const maxValue = Math.max(...data.map(d => d.value)); 
 
         const xScale = d3.scaleBand()
-            .domain(List(...data.map(d => d["Height (inches)"])))
+            .domain([...new Set(data.map(d => d.name))])
             
             .range([0,800])
             .padding(0.1);
