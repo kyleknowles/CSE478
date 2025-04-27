@@ -71,7 +71,7 @@ fetch("data.csv")
             .enter()
             .append("circle")
             .attr("cx", 400)
-            .attr("cy", i => 100 + 30 * i)
+            .attr("cy", (_, i) => 100 + 30 * i)
             .attr("r", 12)
             .attr("fill", "blue");
     }); 
