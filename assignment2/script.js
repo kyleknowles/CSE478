@@ -73,7 +73,7 @@ fetch("data.csv")
             .attr("cx", 600)
             .attr("cy", (_, i) => 60 + 30 * i)
             .attr("r", 12)
-            .attr("fill", "blue");
+            .attr("fill", d => d.category);
     }); 
         
 
