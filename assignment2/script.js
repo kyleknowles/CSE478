@@ -52,7 +52,7 @@ fetch("data.csv")
             .attr("y", d => yScale(d))
             //.attr("y", d=> yScale(d.value))
             .attr("width", xScale.bandwidth())
-            .attr("height", d => 450 - yScale(d.value))
+            .attr("height", d => 450 - yScale(d))
 
 
             //.attr("x", (d, i) => i * (barWidth + (barWidth/2)))
