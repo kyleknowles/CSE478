@@ -65,7 +65,7 @@ fetch("data.csv")
             //.text(d => d.name);
             .text(d => d.value);
 
-        const cats = ["Fruit", "Vegetable"]
+        const cats = ["Fruit", "Vegetable"];
         const legend = svg.selectAll("circle")
             .data(cats)
             .enter()
@@ -73,7 +73,7 @@ fetch("data.csv")
             .attr("cx", 600)
             .attr("cy", (_, i) => 60 + 30 * i)
             .attr("r", 12)
-            .attr("fill", d => color(d.category));
+            .attr("fill", (_, i) => color(cats[i]));
 
         const legendText = svg.selectAll("text")
             .data(cats)
