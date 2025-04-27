@@ -31,7 +31,8 @@ fetch("data.csv")
         const maxValue = Math.max(...data.map(d => d.value)); 
 
         const xScale = d3.scaleBand()
-            .domain(["Fruit", "Vegetable"])
+            .domain(data.map(d => d.name))
+            
             .range([0,800])
             .padding(0.1);
 
@@ -48,7 +49,7 @@ fetch("data.csv")
             .enter()
             .append("rect")
             alert("1")
-            .attr("x", d => xScale(d.category))
+            .attr("x", d => xScale(d.name))
             //.attr("y", d => yScale(d.value))
             alert("2")
             .attr("width", xScale.bandwidth())
