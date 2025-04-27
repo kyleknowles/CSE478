@@ -37,7 +37,7 @@ fetch("data.csv")
 
         const yScale = d3.scaleLinear()
             .domain([0,maxValue])
-            .range([0,450]);
+            .range([450,0]);
 
 
         
