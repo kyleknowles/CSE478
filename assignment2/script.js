@@ -50,19 +50,12 @@ fetch("data.csv")
             .enter()
             .append("rect")
 
-            //.attr("x", (d, i) => i * (xScale.bandwidth()))
-            //.attr("y", d => yScale(d.value))
-            .attr("x", d => xScale(d.category))
 
-            //.attr("y", d => 450 - d.value)
-            .attr("width", xScale.bandwidth())
-            ////.attr("width", xScale.bandwidth())
-            //.attr("width", barWidth)     
-            //.attr("height", d => d.value)
-
-            //
+            .attr("x", d => xScale(d.name))
             .attr("y", d => 450 - yScale(d.value))
-            //.attr("width", xScale.bandwidth())
+            
+            .attr("width", xScale.bandwidth())
+
             .attr("height", d => yScale(d.value))
 
     
