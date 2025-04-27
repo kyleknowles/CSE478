@@ -23,9 +23,10 @@ fetch("data.csv")
             .range(["steelblue", "red"])
 
         
+            /*
         const chart = svg.append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
-        
+        */
         const maxValue = Math.max(...data.map(d => d.value)); 
 
         const xScale = d3.scaleBand()
