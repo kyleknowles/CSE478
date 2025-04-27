@@ -28,7 +28,7 @@ fetch("data.csv")
         );
         */
 
-        let maxValue = Math.max(...data.map(d => d.value)); 
+        const maxValue = Math.max(...data.map(d => d.value)); 
 
         alert(maxValue)
         const xScale = d3.scaleBand()
@@ -52,7 +52,7 @@ fetch("data.csv")
             .append("rect")
 
             .attr("x", d => xScale(d.category))
-            .attr("y", d => yScale(d.value))
+            //.attr("y", d => yScale(d.value))
             //.attr("x", (d, i) => i * (barWidth + (barWidth/2)))
             //.attr("y", d => 450 - d.value)
             .attr("width", xScale.bandwidth())
