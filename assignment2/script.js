@@ -56,11 +56,11 @@ fetch("data.csv")
             .data(data)
             .enter()
             .append("text")
-            .attr("transform", "rotate(90)")
+
             .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)
             .attr("y", d => 450 - yScale(d.value))
             .attr("text-anchor", "middle")
-            
+            .attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2}, ${450 - yScale(d.value)})`)
             .text(d => d.name);
 
     }); 
