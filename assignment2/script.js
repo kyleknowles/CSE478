@@ -24,8 +24,7 @@ fetch("data.csv")
 
         const chart = svg.append("g")
             .attr("transform", 'translate(${margin.left}, ${margin.top})' 
-            );
-
+        );
 
 
         const bars = svg.selectAll("rect")
@@ -33,13 +32,14 @@ fetch("data.csv")
             .enter()
             .append("rect")
 
-            .attr("x", (_, i) => xScale(i))
-            .attr("y", d => yScale(d))
-            .attr("width", xScale.bandwidth())
+            .attr("x", (d, i) => i * (barWidth + (barWidth/2)))
+            .attr("y", d => 450 - d.value)
+            .attr("width", barWidth)               
             .attr("height", d => d.value)
             .attr("fill", d => color(d.category))
             //.text(d => d.name)
-
+  //.attr("x", (_, i) => xScale(i))
+            //.attr("y", d => yScale(d))
 
                         /*
                         
