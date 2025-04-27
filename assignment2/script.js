@@ -25,13 +25,13 @@ fetch("data.csv")
         
         
         const chart = svg.append("g")
-            .attr("transform", `translate(50, 50)`);
+            .attr("transform", "translate(50, 50)");
 
 
         const maxValue = Math.max(...data.map(d => d.value)); 
 
         const xScale = d3.scaleBand()
-            .domain(["Fruit", "Vegetables"])
+            .domain(List(...data.map(d => d["Height (inches)"])))
             
             .range([0,800])
             .padding(0.1);
