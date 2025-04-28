@@ -46,12 +46,12 @@ fetch("data.csv")
 
         svg.append("g")
 
-            .attr("transform", "translate(0, height)")
+            .attr("transform", "translate(${margin.left}, ${450 - margin.bottom})")
             .call(d3.axisBottom(xScale))
-            .selectAll("text") // select all tick labels
-            .attr("transform", "rotate(90)") // rotate each label
-            .style("text-anchor", "start")   // so text isn't awkward
-            .attr("dx", "0.5em")              // little nudge right
+            .selectAll("text") 
+            .attr("transform", "rotate(90)")
+            .style("text-anchor", "start")  
+            .attr("dx", "0.5em")              
             .attr("dy", "-0.5em");
 
 
