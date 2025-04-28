@@ -50,7 +50,7 @@ fetch("data.csv")
 
 
         svg.append("g")
-            .attr("transform", `translate(${margin.left}, ${100})`)
+            .attr("transform", `translate(${margin.left}, ${450 - margin.bottom})`)
             .call(d3.axisLeft(yScale));
         
         
