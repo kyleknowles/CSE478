@@ -118,9 +118,9 @@ fetch("data.csv")
             .data(data)
             .enter()
             .append("text")
-            .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)
-            .attr("y", d => 450)
-            .attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2}, ${450})`)
+            .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2 - 4)
+            .attr("y", d => 450 - 6 * d.name.length})
+            .attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2 - 4}, ${450 - 6 * d.name.length}})`)
             .attr("text-anchor", "middle")
             
             .text(d => d.name);
