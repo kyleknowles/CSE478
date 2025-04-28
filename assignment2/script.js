@@ -60,7 +60,7 @@ fetch("data.csv")
             .enter()
             .append("rect")
             .attr("x", d => xScale(d.name) + margin.left)
-            .attr("y", d => 450 - yScale(d.value) - margin.bottom)
+            //.attr("y", d => 450 - yScale(d.value) - margin.bottom)
             .attr("width", xScale.bandwidth())
             .attr("height", d => yScale(d.value))
             .attr("fill", d => color(d.category))
@@ -99,7 +99,7 @@ fetch("data.csv")
             .append("text")
 
             .attr("x", d => xScale(d.name) + margin.left + xScale.bandwidth() / 2)
-            //.attr("y", d => margin.bottom - yScale(d.value)) // - margin.bottom -
+            .attr("y", d => margin.bottom - yScale(d.value)) 
             .attr("text-anchor", "middle")
             
             //.text(d => d.name);
