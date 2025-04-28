@@ -24,8 +24,8 @@ fetch("data.csv")
 
         
         
-        const margin = {top: 20, right: 20, bottom: 20, left: 40};
-        const width = 450 - margin.left - margin.right;
+        const margin = {top: 20, right: 40, bottom: 20, left: 5};
+        const width = 800 - margin.left - margin.right;
         const height = 450 - margin.top - margin.bottom;
 
         const chart = svg.append("g")
@@ -40,7 +40,7 @@ fetch("data.csv")
             .padding(0.1);
 
         const yScale = d3.scaleLinear()
-            .domain([0, 21])
+            .domain([0, 20])
             .range([0, height]);
         
 
