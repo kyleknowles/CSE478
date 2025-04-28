@@ -39,7 +39,7 @@ fetch("data.csv")
             .padding(0.1);
 
         svg.append("g")
-            .attr("transform", `translate(${margin.left}, ${height}})`)
+            .attr("transform", `translate(${margin.left}, ${0}})`)
             .call(d3.axisBottom(xScale));
 
         const yScale = d3.scaleLinear()
@@ -66,7 +66,7 @@ fetch("data.csv")
                 d3.select("#tooltip")
                     // Shows tooltip details on hover
                     .style("display", "block")
-                    .html(`${d.name}, ${d.category} ${d.value}`);
+                    .html(`${d.name}, ${d.category}, ${d.value}`);
             })
             .on("mouseout", function(event, d) {
                 d3.select(this)
