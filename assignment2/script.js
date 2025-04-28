@@ -31,16 +31,7 @@ fetch("data.csv")
         const chart = svg.append("g")
             .attr("transform", `translate(${margin.right}, ${margin.top})`);
 
-        svgBar.append("g").call(d3.axisLeft(y).tickSize(0))
-
-            .selectAll("text").attr("fill", "white");
-
-        svgBar.append("g").attr("transform", )
-
-            .call(d3.axisBottom(x).ticks(5))
-
-            .selectAll("text").attr("fill", "white");
-
+   
         const maxValue = Math.max(...data.map(d => d.value)); 
 
         const xScale = d3.scaleBand()
