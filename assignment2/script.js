@@ -40,7 +40,7 @@ fetch("data.csv")
 
         const yScale = d3.scaleLinear()
             .domain([0, 20])
-            .range([0, height]);
+            .range([height, 0]);
 
 
         svg.append("g")
