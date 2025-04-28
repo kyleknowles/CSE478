@@ -114,15 +114,16 @@ fetch("data.csv")
             .attr("y", (_, i) => 66 + 30 * i)
             .text((d, i) => cats[i]);
         
-        const barText = svg.selectAll(".label-text")
+            const barText = svg.selectAll(".label-text")
             .data(data)
             .enter()
             .append("text")
-            .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2 - 4)
-            .attr("y", 450 - margin.bottom + 10)  // <-- constant Y position
-            .attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2 - 4}, ${450 - margin.bottom + 10})`)
-            .attr("text-anchor", "middle")
+            .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)  // center of bar
+            .attr("y", 450 - margin.bottom + 10)  // constant y position
+            .attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2}, ${450 - margin.bottom + 10})`)
+            .attr("text-anchor", "start")  // <-- important!
             .text(d => d.name);
+        
         
     }); 
         
