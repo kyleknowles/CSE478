@@ -35,7 +35,7 @@ fetch("data.csv")
 
         
         // Defines margins
-        const margin = {top: 20, right: 5, bottom: 80, left: 30};
+        const margin = {top: 30, right: 5, bottom: 80, left: 30};
 
         // Defines width based on left and right margins
         const width = 800 - margin.left - margin.right;
@@ -120,7 +120,7 @@ fetch("data.csv")
             .append("text")
 
             .attr("x", d => xScale(d.name) + margin.left + xScale.bandwidth() / 2)
-            .attr("y", d => yScale(d.value) + 2) 
+            .attr("y", d => yScale(d.value)) 
             .attr("text-anchor", "middle")
             
             //.text(d => d.name);
