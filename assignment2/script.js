@@ -24,7 +24,7 @@ fetch("data.csv")
 
         
         
-        const margin = {top: 20, right: 5, bottom: 120, left: 5};
+        const margin = {top: 20, right: 5, bottom: 125, left: 5};
         const width = 800 - margin.left - margin.right;
         const height = 450 - margin.top - margin.bottom;
 
@@ -32,7 +32,7 @@ fetch("data.csv")
             .attr("transform", `translate(${margin.right}, ${margin.top})`);
 
 
-        const maxValue = Math.max(...data.map(d => d.value)); 
+        //const maxValue = Math.max(...data.map(d => d.value)); 
 
         const xScale = d3.scaleBand()
             .domain([...new Set(data.map(d => d.name))])
@@ -40,8 +40,10 @@ fetch("data.csv")
             .padding(0.1);
 
         const yScale = d3.scaleLinear()
-            .domain([0, 20])
+            .domain([0, d3.max(data, d => d.value) * 1.05])
             .range([0, height]);
+
+
         
 
 
