@@ -57,7 +57,7 @@ fetch("data.csv")
         // Creates g object
         svg.append("g")
             // Creates x-axis based on name category
-            .attr("transform", "translate(${margin.left}, ${450 - margin.bottom})")
+            .attr("transform", `translate(${margin.left}, ${450 - margin.bottom})`)
             .call(d3.axisBottom(xScale))
 
             // Rotatates x-axis 90 degrees
