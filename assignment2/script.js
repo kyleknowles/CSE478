@@ -36,12 +36,12 @@ fetch("data.csv")
 
         const xScale = d3.scaleBand()
             .domain([...new Set(data.map(d => d.name))])
-            .range([0, 800])
+            .range([0, width])
             .padding(0.1);
 
         const yScale = d3.scaleLinear()
             .domain([0, 21])
-            .range([0, 450]);
+            .range([0, height]);
         
 
 
