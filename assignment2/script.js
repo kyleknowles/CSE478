@@ -24,7 +24,7 @@ fetch("data.csv")
 
         
         
-        const margin = {top: 20, right: 5, bottom: 70, left: 30};
+        const margin = {top: 20, right: 5, bottom: 20, left: 30};
         const width = 800 - margin.left - margin.right;
         const height = 450 - margin.top - margin.bottom;
 
