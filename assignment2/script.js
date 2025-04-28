@@ -53,7 +53,7 @@ fetch("data.csv")
             .attr("y", d => 450 - yScale(d.value))
             .attr("width", xScale.bandwidth())
             .attr("height", d => yScale(d.value))
-            .attr("fill", d => color(d.category));
+            .attr("fill", d => color(d.category))
             d3.select(this) 
                 // Fill magenta on hover
                 .style("fill", "magenta")
@@ -63,12 +63,14 @@ fetch("data.csv")
                 .html(`${d.name}`);
     })
     // Back to default values off of hover
+    /*
     .on("mouseout", function(event, d) {
         d3.select(this)
             .style("fill", "steelblue")
         d3.select("#tooltip")
         
             .style("display", "none")
+            */
 
         const labels = svg.selectAll("text")
             .data(data)
