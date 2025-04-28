@@ -40,7 +40,7 @@ fetch("data.csv")
 
         svg.append("g")
             .attr("transform", `translate(${margin.right}, ${margin.top})`)
-            .text("Hello")
+            .call(d3.axisBottom(xScale));
 
         const yScale = d3.scaleLinear()
             .domain([0, 20])
