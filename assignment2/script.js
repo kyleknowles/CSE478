@@ -24,7 +24,7 @@ fetch("data.csv")
 
         
         
-        const margin = {top: 20, right: 5, bottom: 100, left: 5};
+        const margin = {top: 20, right: 5, bottom: 120, left: 5};
         const width = 800 - margin.left - margin.right;
         const height = 450 - margin.top - margin.bottom;
 
@@ -119,8 +119,8 @@ fetch("data.csv")
             .enter()
             .append("text")
             .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2 - 4)
-            .attr("y", d => 450 - margin.bottom + d.name.length * 4)
-            .attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2 - 4}, ${450 - margin.bottom + d.name.length * 4})`)
+            .attr("y", d => 450 - margin.bottom + d.name.length * 6)
+            .attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2 - 4}, ${450 - margin.bottom + d.name.length * 6})`)
             .attr("text-anchor", "middle")
             
             .text(d => d.name);
