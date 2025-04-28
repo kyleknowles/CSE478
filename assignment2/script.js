@@ -63,6 +63,15 @@ fetch("data.csv")
                     .style("display", "block")
                     .html(`${d.name}`);
             })
+            .on("mouseout", function(event, d) {
+                d3.select(this)
+                    .style("fill", d => color(d.category));
+                d3.select("#tooltip")
+                
+                    .style("display", "none");
+                
+            })      
+
 
     // Back to default values off of hover
     /*
