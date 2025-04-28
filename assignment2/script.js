@@ -39,7 +39,7 @@ fetch("data.csv")
             .padding(0.1);
 
         svg.append("g")
-            .attr("transform", `translate(${margin.right}, 0})`)
+            .attr("transform", `translate(${margin.left}, ${height}})`)
             .call(d3.axisBottom(xScale));
 
         const yScale = d3.scaleLinear()
@@ -118,6 +118,7 @@ fetch("data.csv")
             .attr("y", (_, i) => 56 + 30 * i)
             .text((d, i) => cats[i]);
         
+            /*
         const barText = svg.selectAll(".label-text")
             .data(data)
             .enter()
@@ -127,6 +128,7 @@ fetch("data.csv")
             .attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2}, ${450 - margin.bottom + 10})`)
             .attr("text-anchor", "start")
             .text(d => d.name);
+            */
         
         
     }); 
