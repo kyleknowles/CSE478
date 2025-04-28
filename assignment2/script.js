@@ -42,7 +42,7 @@ fetch("data.csv")
             .domain([0, 20])
             .range([0, height]);
 
-            /*
+            
 
         svg.append("g")
             .attr("transform", `translate(${margin.left}, ${450 - margin.bottom})`)
@@ -52,7 +52,7 @@ fetch("data.csv")
             .attr("transform", `translate(${margin.left}, ${margin.bottom})`)
             .call(d3.axisLeft(yScale));
         
-        */
+        
       
 
         const bars = svg.selectAll("rect")
@@ -93,13 +93,13 @@ fetch("data.csv")
             .style("display", "none")
             */
 
-        const labels = svg.selectAll("text")
+        const labels = svg.selectAll(".labels-text")
             .data(data)
             .enter()
             .append("text")
 
-            .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)
-            .attr("y", d => 450 - yScale(d.value) - 3) // - margin.bottom -
+            .attr("x", d => xScale(d.name) + margin.left + xScale.bandwidth() / 2)
+            .attr("y", d => 450 - margin.bottom - yScale(d.value) - 3) // - margin.bottom -
             .attr("text-anchor", "middle")
             
             //.text(d => d.name);
