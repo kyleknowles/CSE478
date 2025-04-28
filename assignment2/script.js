@@ -47,10 +47,7 @@ fetch("data.csv")
         svg.append("g")
             .attr("transform", `translate(${margin.left}, ${450 - margin.bottom})`)
             .call(d3.axisBottom(xScale))
-                .attr("transform", "rotate(90)") 
-                .style("text-anchor", "start")   
-                .attr("dx", "0.5em")             
-                .attr("dy", "-0.5em");
+
 
         svg.append("g")
             .attr("transform", `translate(${margin.left}, ${margin.bottom})`)
