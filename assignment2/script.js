@@ -28,9 +28,7 @@ fetch("data.csv")
         const width = 800 - margin.left - margin.right;
         const height = 450 - margin.top - margin.bottom;
 
-        svg.append("g")
-            .attr("transform", `translate(${margin.right}, ${margin.top})`)
-            .call(d3.axisBottom(x));
+
 
    
         const maxValue = Math.max(...data.map(d => d.value)); 
@@ -39,6 +37,10 @@ fetch("data.csv")
             .domain([...new Set(data.map(d => d.name))])
             .range([0, width])
             .padding(0.1);
+
+        svg.append("g")
+            .attr("transform", `translate(${margin.right}, ${margin.top})`)
+            .call(d3.axisBottom(xScale));
 
         const yScale = d3.scaleLinear()
             .domain([0, 20])
