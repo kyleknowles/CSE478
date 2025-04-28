@@ -53,14 +53,16 @@ fetch("data.csv")
             .attr("y", d => 450 - yScale(d.value))
             .attr("width", xScale.bandwidth())
             .attr("height", d => yScale(d.value))
-            .attr("fill", d => color(d.category));
-            d3.select(this) 
-                // Fill magenta on hover
-                .style("fill", "magenta");
-            d3.select("#tooltip")
-                // Shows tooltip details on hover
-                .style("display", "block")
-                .html(`${d.name}`);
+            .attr("fill", d => color(d.category))
+            .on("mouseover", function(event, d) {
+                d3.select(this) 
+                    // Fill magenta on hover
+                    .style("fill", "magenta");
+                d3.select("#tooltip")
+                    // Shows tooltip details on hover
+                    .style("display", "block")
+                    .html(`${d.name}`);
+            })
 
     // Back to default values off of hover
     /*
