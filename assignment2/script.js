@@ -97,7 +97,7 @@ fetch("data.csv")
             .on("mouseout", function(event, d) {
                 d3.select(this)
                     .style("fill", d => color(d.category));
-                d3.select("tooltip")
+                d3.select(".tooltip")
                     .style("display", "none");
                 
             })      
