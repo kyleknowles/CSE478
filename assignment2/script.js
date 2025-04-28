@@ -62,7 +62,7 @@ fetch("data.csv")
             .attr("x", d => xScale(d.name) + margin.left)
             .attr("y", d => 450 - yScale(d.value) - margin.bottom)
             .attr("width", xScale.bandwidth())
-            .attr("height", d => yScale(d.value))
+            .attr("height", d => yScale(20 - d.value))
             .attr("fill", d => color(d.category))
             .on("mouseover", function(event, d) {
                 d3.select(this) 
