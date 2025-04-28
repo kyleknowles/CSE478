@@ -45,18 +45,19 @@ fetch("data.csv")
             
 
         svg.append("g")
-            .attr("transform", `translate(${margin.left}, ${450 - margin.bottom})`)
+
+            .attr("transform", "translate(0, height)")
             .call(d3.axisBottom(xScale))
+            .selectAll("text") // select all tick labels
+            .attr("transform", "rotate(90)") // rotate each label
+            .style("text-anchor", "start")   // so text isn't awkward
+            .attr("dx", "0.5em")              // little nudge right
+            .attr("dy", "-0.5em");
 
 
         svg.append("g")
-            .attr("transform", `translate(0, ${height})`)
-            .call(d3.axisLeft(yScale))
-                .selectAll("text") // select all tick labels
-                .attr("transform", "rotate(90)") // rotate each label
-                .style("text-anchor", "start")   // so text isn't awkward
-                .attr("dx", "0.5em")              // little nudge right
-                .attr("dy", "-0.5em");
+            .attr("transform", `translate(${margin.left}, ${margin.top})`)
+            .call(d3.axisLeft(yScale));
         
         
       
