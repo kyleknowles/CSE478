@@ -91,7 +91,7 @@ fetch("data.csv")
                     .style("fill", "magenta");
                 d3.select(".tooltip")
                     // Shows tooltip details on hover
-                    .style("display", "block")
+                    //.style("display", "block")
                     .html(`${d.name}, ${d.category}, ${d.value}`);
             })
             .on("mouseout", function(event, d) {
