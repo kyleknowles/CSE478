@@ -24,7 +24,7 @@ fetch("data.csv")
 
         
         
-        const margin = {top: 20, right: 5, bottom: 20, left: 5};
+        const margin = {top: 20, right: 5, bottom: 40, left: 5};
         const width = 800 - margin.left - margin.right;
         const height = 450 - margin.top - margin.bottom;
 
@@ -50,7 +50,7 @@ fetch("data.csv")
             .enter()
             .append("rect")
             .attr("x", d => xScale(d.name))
-            .attr("y", d => 450 - yScale(d.value))
+            .attr("y", d => 450 - yScale(d.value) + margin.bottom)
             .attr("width", xScale.bandwidth())
             .attr("height", d => yScale(d.value))
             .attr("fill", d => color(d.category))
