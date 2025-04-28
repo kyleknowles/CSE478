@@ -63,7 +63,7 @@ fetch("data.csv")
                 d3.select("#tooltip")
                     // Shows tooltip details on hover
                     .style("display", "block")
-                    .html(`${d.name}`);
+                    .html(`${d.name}, ${d.category} ${d.value}`);
             })
             .on("mouseout", function(event, d) {
                 d3.select(this)
