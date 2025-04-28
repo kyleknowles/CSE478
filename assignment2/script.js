@@ -39,7 +39,7 @@ fetch("data.csv")
             .padding(0.1);
 
         const yScale = d3.scaleLinear()
-            .domain([0, 20])
+            .domain([20, 0])
             .range([0, height]);
 
             
@@ -99,7 +99,7 @@ fetch("data.csv")
             .append("text")
 
             .attr("x", d => xScale(d.name) + margin.left + xScale.bandwidth() / 2)
-            .attr("y", d => 450 - margin.bottom - yScale(d.value) - 3) // - margin.bottom -
+            //.attr("y", d => margin.bottom - yScale(d.value)) // - margin.bottom -
             .attr("text-anchor", "middle")
             
             //.text(d => d.name);
