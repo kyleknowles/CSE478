@@ -89,8 +89,7 @@ fetch("data.csv")
             .append("text")
 
             .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)
-            .attr("y", d => 450 - yScale(d.value) - 3) // + 6 * d.name.length
-            //.attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2 - 4}, ${450 - yScale(d.value) +  6 * d.name.length})`)
+            .attr("y", d => 450 - margin.bottom + yScale(d.value) - 3) // + 6 * d.name.length
             .attr("text-anchor", "middle")
             
             //.text(d => d.name);
@@ -114,14 +113,14 @@ fetch("data.csv")
             .attr("y", (_, i) => 66 + 30 * i)
             .text((d, i) => cats[i]);
         
-            const barText = svg.selectAll(".label-text")
+        const barText = svg.selectAll(".label-text")
             .data(data)
             .enter()
             .append("text")
-            .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)  // center of bar
-            .attr("y", 450 - margin.bottom + 10)  // constant y position
+            .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)  
+            .attr("y", 450 - margin.bottom + 10)  
             .attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2}, ${450 - margin.bottom + 10})`)
-            .attr("text-anchor", "start")  // <-- important!
+            .attr("text-anchor", "start")
             .text(d => d.name);
         
         
