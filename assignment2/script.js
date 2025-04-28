@@ -38,6 +38,11 @@ fetch("data.csv")
             .range([0, width])
             .padding(0.1);
 
+        const yScale = d3.scaleLinear()
+            .domain([0, 20])
+            .range([0, height]);
+
+
         svg.append("g")
             .attr("transform", `translate(${margin.left}, ${450 - margin.bottom})`)
             .call(d3.axisBottom(xScale));
@@ -47,13 +52,7 @@ fetch("data.csv")
             .call(d3.axisLeft(yScale));
         
 
-        const yScale = d3.scaleLinear()
-            .domain([0, 20])
-            .range([0, height]);
-
-
-        
-
+      
 
         const bars = svg.selectAll("rect")
             .data(data)
