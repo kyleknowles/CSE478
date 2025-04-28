@@ -99,7 +99,7 @@ fetch("data.csv")
             .append("text")
 
             .attr("x", d => xScale(d.name) + margin.left + xScale.bandwidth() / 2)
-            .attr("y", d => margin.bottom - yScale(20 - d.value)) 
+            .attr("y", d => yScale(d.value)) 
             .attr("text-anchor", "middle")
             
             //.text(d => d.name);
