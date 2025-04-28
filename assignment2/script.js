@@ -39,7 +39,7 @@ fetch("data.csv")
             .padding(0.1);
 
         svg.append("g")
-            .attr("transform", `translate(${margin.left}, ${450})`)
+            .attr("transform", `translate(${margin.left}, ${445})`)
             .call(d3.axisBottom(xScale));
 
         const yScale = d3.scaleLinear()
