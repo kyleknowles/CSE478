@@ -31,8 +31,17 @@ fetch("data.csv")
         const chart = svg.append("g")
             .attr("transform", `translate(${margin.right}, ${margin.top})`);
 
+        svgBar.append("g").call(d3.axisLeft(y).tickSize(0))
 
-        //const maxValue = Math.max(...data.map(d => d.value)); 
+            .selectAll("text").attr("fill", "white");
+
+        svgBar.append("g").attr("transform", )
+
+            .call(d3.axisBottom(x).ticks(5))
+
+            .selectAll("text").attr("fill", "white");
+
+        const maxValue = Math.max(...data.map(d => d.value)); 
 
         const xScale = d3.scaleBand()
             .domain([...new Set(data.map(d => d.name))])
@@ -40,7 +49,7 @@ fetch("data.csv")
             .padding(0.1);
 
         const yScale = d3.scaleLinear()
-            .domain([0, d3.max(data, d => d.value) * 1.05])
+            .domain([0, d3.max(data, d => d.value) * 2.05])
             .range([0, height]);
 
 
