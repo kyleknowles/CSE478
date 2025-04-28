@@ -89,7 +89,7 @@ fetch("data.csv")
                 d3.select(this) 
                     // Fill magenta on hover
                     .style("fill", "magenta");
-                d3.select("#tooltip")
+                d3.select("tooltip")
                     // Shows tooltip details on hover
                     .style("display", "block")
                     .html(`${d.name}, ${d.category}, ${d.value}`);
@@ -97,7 +97,7 @@ fetch("data.csv")
             .on("mouseout", function(event, d) {
                 d3.select(this)
                     .style("fill", d => color(d.category));
-                d3.select("#tooltip")
+                d3.select("tooltip")
                     .style("display", "none");
                 
             })      
