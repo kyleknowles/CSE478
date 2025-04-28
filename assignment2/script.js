@@ -24,7 +24,10 @@ fetch("data.csv")
 
         
         
-        const margin = {top: 50, right: 200, bottom: 20, left: 40}
+        const margin = {top: 20, right: 20, bottom: 20, left: 40};
+        const width = 450 - margin.left - margin.right;
+        const height = 450 - margin.top - margin.bottom;
+
         const chart = svg.append("g")
             .attr("transform", `translate(${margin.right}, ${margin.top})`);
 
@@ -37,7 +40,7 @@ fetch("data.csv")
             .padding(0.1);
 
         const yScale = d3.scaleLinear()
-            .domain([0, 22])
+            .domain([0, 21])
             .range([0, 450]);
         
 
@@ -51,6 +54,21 @@ fetch("data.csv")
             .attr("width", xScale.bandwidth())
             .attr("height", d => yScale(d.value))
             .attr("fill", d => color(d.category));
+            d3.select(this) 
+                // Fill magenta on hover
+                .style("fill", "magenta")
+            d3.select("#tooltip")
+                // Shows tooltip details on hover
+                .style("display", "block")
+                .html(`${d.name}`);
+    })
+    // Back to default values off of hover
+    .on("mouseout", function(event, d) {
+        d3.select(this)
+            .style("fill", "steelblue")
+        d3.select("#tooltip")
+        
+            .style("display", "none")
 
         const labels = svg.selectAll("text")
             .data(data)
@@ -90,6 +108,8 @@ fetch("data.csv")
                         /*
                         
 
-                7. Create a legend that maps colors to categories.
+            // add axis labels
+            // add tooltops
+            // comment code
 
                         */
