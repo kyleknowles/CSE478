@@ -49,7 +49,7 @@ fetch("data.csv")
 
         svg.append("g")
             .attr("transform", `translate(${margin.left}, ${margin.bottom})`)
-            .call(d3.axisLeft(yScale.reverse()));
+            .call(d3.axisLeft(yScale.domain().reverse()));
         
 
       
