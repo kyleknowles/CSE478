@@ -103,7 +103,7 @@ fetch("data.csv")
             .enter()
             .append("circle")
             .attr("cx", 600)
-            .attr("cy", (_, i) => 60 + 30 * i)
+            .attr("cy", (_, i) => 50 + 30 * i)
             .attr("r", 12)
             .attr("fill", (_, i) => color(cats[i]));
 
@@ -112,7 +112,7 @@ fetch("data.csv")
             .enter()
             .append("text")
             .attr("x", 620)
-            .attr("y", (_, i) => 66 + 30 * i)
+            .attr("y", (_, i) => 56 + 30 * i)
             .text((d, i) => cats[i]);
         
         const barText = svg.selectAll(".label-text")
