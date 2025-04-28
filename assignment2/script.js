@@ -24,7 +24,7 @@ fetch("data.csv")
 
         
         
-        const margin = {top: 20, right: 5, bottom: 20, left: 20};
+        const margin = {top: 20, right: 5, bottom: 20, left: 30};
         const width = 800 - margin.left - margin.right;
         const height = 450 - margin.top - margin.bottom;
 
@@ -48,7 +48,7 @@ fetch("data.csv")
             .call(d3.axisBottom(xScale));
 
         svg.append("g")
-            .attr("transform", `translate(${margin.left}, ${height / 2})`)
+            .attr("transform", `translate(${margin.left}, ${margin.bottom})`)
             .call(d3.axisLeft(yScale));
         
 
