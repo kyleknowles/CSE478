@@ -39,7 +39,7 @@ fetch("data.csv")
             .padding(0.1);
 
         const yScale = d3.scaleLinear()
-            .domain([20, 0])
+            .domain([0, 20])
             .range([0, height]);
 
 
