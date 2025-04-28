@@ -65,7 +65,7 @@ fetch("data.csv")
                 .attr("transform", "rotate(90)")
                 .style("text-anchor", "start")  
                 .attr("dx", "0.5em")              
-                .attr("dy", "-0.5em");
+                .attr("dy", "-1.5em");
 
         // Creates g object
         svg.append("g")
