@@ -1,8 +1,15 @@
+
+// loads data
 fetch("data.csv")
 .then(response => response.text())
 .then(csv => {
+        // splits data rows
         let rows = csv.split("\n");
+
+        // splits data columns
         let headers = rows[0].split(",");
+
+        // creates key,value pair objects and returns them
         data = rows.slice(1).map(row => {
         let values = row.split(",");
             return headers.reduce((obj, key, i) => {
@@ -14,54 +21,61 @@ fetch("data.csv")
     })
     // Creates svg graphs
 
+
     .then (data => {
-        const barWidth = 30
+        
+        // initalizes svg
         const svg = d3.select("svg");
 
+
+        // Creates color scale mapping categorical values to certain colors
         const color = d3.scaleOrdinal()
             .domain(["Fruit", "Vegetable"])
             .range(["steelblue", "red"]);
 
         
-        
+        // Defines margins
         const margin = {top: 20, right: 5, bottom: 75, left: 30};
+
+        // Defines width based on left and right margins
         const width = 800 - margin.left - margin.right;
+
+        // Defines height based on top and bottom margins
         const height = 450 - margin.top - margin.bottom;
 
-
-
-   
-        const maxValue = Math.max(...data.map(d => d.value)); 
-
+        // Defines x scale based on d.name categorical values
         const xScale = d3.scaleBand()
             .domain([...new Set(data.map(d => d.name))])
             .range([0, width])
             .padding(0.1);
 
+        // Defines y scale based on d.value values
         const yScale = d3.scaleLinear()
             .domain([20, 0])
             .range([0, height]);
 
-            
-
+        // Creates g object
         svg.append("g")
-
+            // Creates x-axis based on name category
             .attr("transform", "translate(${margin.left}, ${450 - margin.bottom})")
             .call(d3.axisBottom(xScale))
+
+            // Rotatates x-axis 90 degrees
             .selectAll("text") 
                 .attr("transform", "rotate(90)")
                 .style("text-anchor", "start")  
             //.attr("dx", "0.5em")              
             //.attr("dy", "-0.5em");
 
-
+        // Creates g object
         svg.append("g")
+            // Creates y-axis based on value
             .attr("transform", `translate(${margin.left}, ${margin.top})`)
             .call(d3.axisLeft(yScale));
         
         
       
-
+        // 
         const bars = svg.selectAll("rect")
             .data(data)
             .enter()
@@ -83,7 +97,7 @@ fetch("data.csv")
             .on("mouseout", function(event, d) {
                 d3.select(this)
                     .style("fill", d => color(d.category));
-                d3.select("#tooltip")
+                d3.select(".tooltip")
                 
                     .style("display", "none");
                 
@@ -130,28 +144,10 @@ fetch("data.csv")
             .attr("y", (_, i) => 56 + 30 * i)
             .text((d, i) => cats[i]);
         
-            /*
-        const barText = svg.selectAll(".label-text")
-            .data(data)
-            .enter()
-            .append("text")
-            .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)  
-            .attr("y", 450 - margin.bottom + 10)  
-            .attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2}, ${450 - margin.bottom + 10})`)
-            .attr("text-anchor", "start")
-            .text(d => d.name);
-            */
-        
+
         
     }); 
         
 
 
-                        /*
-                        
-
-            // add axis labels
-            // add tooltops
-            // comment code
-
-                        */
+          
