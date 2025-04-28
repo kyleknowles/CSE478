@@ -24,7 +24,7 @@ fetch("data.csv")
 
         
         
-        const margin = {top: 20, right: 5, bottom: 80, left: 5};
+        const margin = {top: 20, right: 5, bottom: 100, left: 5};
         const width = 800 - margin.left - margin.right;
         const height = 450 - margin.top - margin.bottom;
 
@@ -113,6 +113,18 @@ fetch("data.csv")
             .attr("x", 620)
             .attr("y", (_, i) => 66 + 30 * i)
             .text((d, i) => cats[i]);
+        
+        const barText = svg.selectAll(".legend-text")
+            .data(data)
+            .enter()
+            .append("text")
+
+            .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)
+            .attr("y", d => 450)
+            .attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2 - 4}, ${450 - yScale(d.value) +  6 * d.name.length})`)
+            .attr("text-anchor", "middle")
+            
+            .text(d => d.name);
         
     }); 
         
