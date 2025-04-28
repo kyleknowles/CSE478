@@ -34,15 +34,14 @@ fetch("data.csv")
 
         svg.append("text")
             .attr("text-anchor", "middle")
-            .attr("x", 250)
-            .attr("y", 490)
+            .attr("x", 400)
+            .attr("y", 225)
             .text("X Axis Label");
 
         svg.append("g")
             .attr("transform", "translate(50,50)")
             .call(d3.axisLeft(y));
 
-        // y-axis label
         svg.append("text")
             .attr("text-anchor", "middle")
             .attr("transform", "rotate(-90)")
