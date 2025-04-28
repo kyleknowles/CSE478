@@ -28,9 +28,27 @@ fetch("data.csv")
         const width = 800 - margin.left - margin.right;
         const height = 450 - margin.top - margin.bottom;
 
-        const chart = svg.append("g")
-            .attr("transform", `translate(${margin.right}, ${margin.top})`);
+        svg.append("g")
+            .attr("transform", `translate(${margin.right}, ${margin.top})`)
+            .call(d3.axisBottom(x));
 
+        svg.append("text")
+            .attr("text-anchor", "middle")
+            .attr("x", 250)
+            .attr("y", 490)
+            .text("X Axis Label");
+
+        svg.append("g")
+            .attr("transform", "translate(50,50)")
+            .call(d3.axisLeft(y));
+
+        // y-axis label
+        svg.append("text")
+            .attr("text-anchor", "middle")
+            .attr("transform", "rotate(-90)")
+            .attr("x", -250) 
+            .attr("y", 10)
+            .text("Y Axis Label");
    
         const maxValue = Math.max(...data.map(d => d.value)); 
 
