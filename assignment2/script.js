@@ -35,7 +35,7 @@ fetch("data.csv")
 
         
         // Defines margins
-        const margin = {top: 20, right: 5, bottom: 80, left: 30};
+        const margin = {top: 20, right: 5, bottom: 70, left: 30};
 
         // Defines width based on left and right margins
         const width = 800 - margin.left - margin.right;
@@ -65,7 +65,7 @@ fetch("data.csv")
                 .attr("transform", "rotate(90)")
                 .style("text-anchor", "start")  
                 .attr("dx", "0.5em")              
-                .attr("dy", "-1.5em");
+                .attr("dy", "-0.5em");
 
         // Creates g object
         svg.append("g")
