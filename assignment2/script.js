@@ -114,11 +114,10 @@ fetch("data.csv")
             .attr("y", (_, i) => 66 + 30 * i)
             .text((d, i) => cats[i]);
         
-        const barText = svg.selectAll(".legend-text")
+        const barText = svg.selectAll(".label-text")
             .data(data)
             .enter()
             .append("text")
-
             .attr("x", d => xScale(d.name) + xScale.bandwidth() / 2)
             .attr("y", d => 450)
             .attr("transform", d => `rotate(90, ${xScale(d.name) + xScale.bandwidth() / 2 - 4}, ${450 - yScale(d.value) +  6 * d.name.length})`)
