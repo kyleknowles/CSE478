@@ -40,7 +40,7 @@ fetch("data.csv")
 
         const yScale = d3.scaleLinear()
             .domain([0, 20])
-            .range([height, 0]);
+            .range([0, height]);
 
 
         svg.append("g")
@@ -49,7 +49,7 @@ fetch("data.csv")
 
         svg.append("g")
             .attr("transform", `translate(${margin.left}, ${margin.bottom})`)
-            .call(d3.axisLeft(yScale));
+            .call(d3.axisLeft(yScale.reverse()));
         
 
       
