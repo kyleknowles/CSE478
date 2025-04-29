@@ -20,8 +20,6 @@ fetch("data.csv")
         return data
     })
     // Creates svg graphs
-
-
     .then (data => {
         
         // initalizes svg
@@ -73,17 +71,22 @@ fetch("data.csv")
             .attr("transform", `translate(${margin.left}, ${margin.top})`)
             .call(d3.axisLeft(yScale));
         
-        
-      
-        // 
+        // appends rects
         const bars = svg.selectAll("rect")
+            // read data
             .data(data)
+            // enter
             .enter()
+            // add rect
             .append("rect")
+            // define where rect starts
             .attr("x", d => xScale(d.name) + margin.left)
             .attr("y", d => 450 - yScale(20 - d.value) - margin.bottom)
+            // define rect width
             .attr("width", xScale.bandwidth())
+            // define rect height
             .attr("height", d => yScale(20 - d.value))
+            // fill rect based on category
             .attr("fill", d => color(d.category))
             .on("mouseover", function(event, d) {
                 d3.select(this) 
@@ -94,58 +97,78 @@ fetch("data.csv")
                     .style("display", "block")
                     .html(`${d.name}, ${d.category}, ${d.value}`);
             })
+
+            // unhighlights and clears tooltip when not hovering over bar
             .on("mouseout", function(event, d) {
                 d3.select(this)
                     .style("fill", d => color(d.category));
-                d3.select(".tooltip")
-
+                d3.select("#tooltip")
                     .style("display", "none");
-                
             })      
 
 
-    // Back to default values off of hover
-    /*
-    .on("mouseout", function(event, d) {
-        d3.select(this)
-            .style("fill", "steelblue")
-        d3.select("#tooltip")
-        
-            .style("display", "none")
-            */
-
+        // adds labels to bars with value of bar
         const labels = svg.selectAll(".labels-text")
+
+            // loads data
             .data(data)
             .enter()
+
+            // appends text
             .append("text")
 
+            // places label at top of bar
             .attr("x", d => xScale(d.name) + margin.left + xScale.bandwidth() / 2)
             .attr("y", d => yScale(d.value) + margin.bottom - 20) 
+
+            // anchor label to middle of bar
             .attr("text-anchor", "middle")
             
-            //.text(d => d.name);
+            // determines label is of the instance's value 
             .text(d => d.value);
 
+        // list of categories
         const cats = ["Fruit", "Vegetable"];
+        
+        // appends legend's circles
         const legend = svg.selectAll("circle")
+
+            // loads data
             .data(cats)
             .enter()
+
+            // appends circle of category
             .append("circle")
+
+            // places circle in top right corner spaced apart,
+            // one below the other
             .attr("cx", 600)
             .attr("cy", (_, i) => 50 + 30 * i)
+
+            // defines circle radius
             .attr("r", 12)
+
+            // fills circle color to be the color o fthe category it's representing
             .attr("fill", (_, i) => color(cats[i]));
 
+
+        // append's legend's text
         const legendText = svg.selectAll(".legend-text")
+
+            // loads data
             .data(cats)
             .enter()
+
+            // append's legend's text
             .append("text")
+
+            // places next to previously defined adjacent circles
             .attr("x", 620)
             .attr("y", (_, i) => 56 + 30 * i)
-            .text((d, i) => cats[i]);
-        
 
-        
+            // makes text the name of the given category it's representing
+            .text((d, i) => cats[i]);
+    
     }); 
         
 
